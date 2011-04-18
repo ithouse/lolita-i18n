@@ -1,6 +1,6 @@
 = lolita-i18n
 
-Description goes here.
+Lolita I18n is Lolita[https://github.com/ithouse/lolita] plugin, that enables .yml file translation from Lolita interface.
 
 == Contributing to lolita-i18n
  
@@ -14,6 +14,6 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 Arturs Meisters. See LICENSE.txt for
+Copyright (c) 2011 ITHouse (Latvia). See LICENSE.txt for
 further details.
 
