@@ -1,0 +1,14 @@
+<ul>
+<% if tree.keys.size==1 && tree.keys.include?(:__value__) %>
+  <li><%=link_to key, edit_lolita_i18n_path(:id=>tree[:__value__][:path])%>: <%= tree[:__value__][:value]%> </li>
+<% else %>
+  <li>
+    <%=key%> <%#=tree[:__value__]%>
+    <% tree.each do |new_key,new_value| %>
+      <% unless new_key==:__value__ %>
+      <%= render :partial=>"tree",:locals=>{:key=>new_key,:tree=>new_value || {}}%>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
+</ul>

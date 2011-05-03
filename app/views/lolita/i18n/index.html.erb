@@ -1,0 +1,5 @@
+<div class="box list" %>
+<% translation_tree(@translations).each do |key,value| %>
+  <%=render :partial=>"tree",:locals=>{:key=>key,:tree=>value} %>
+<% end %>
+</div>

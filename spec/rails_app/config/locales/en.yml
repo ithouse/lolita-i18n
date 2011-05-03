@@ -1,0 +1,9 @@
+en:
+  "Page title": "Page title"
+  posts:
+    "Title": Posts
+    "Description": "Posts description"
+  comments:
+    "Title": Comments
+    "Description": "Comment description"
+  "Footer": "Footer text"

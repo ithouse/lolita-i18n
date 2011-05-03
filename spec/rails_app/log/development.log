@@ -1,0 +1,162 @@
+# Logfile created on 2011-04-19 10:39:29 +0300 by logger.rb/v1.2.7
+  Processing by Lolita::I18nController#index as HTML
+Completed   in 49ms
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.5ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.4ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.6ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 11.0ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 12ms (Views: 11.2ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.4ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.5ms)
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Pagetitle"}
+Completed 200 OK in 11ms (Views: 10.6ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.3ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.4ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.3ms)
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page%stitle"}
+Completed 200 OK in 11ms (Views: 10.3ms)
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page%stitle"}
+Completed 200 OK in 11ms (Views: 10.7ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.4ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.4ms)
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page%stitle"}
+Completed 200 OK in 11ms (Views: 10.4ms)
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Completed 200 OK in 11ms (Views: 10.8ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.5ms)
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page%stitle"}
+Completed 200 OK in 11ms (Views: 10.2ms)
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Completed 200 OK in 11ms (Views: 10.6ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.6ms)
+Completed 200 OK in 12ms (Views: 11.7ms)
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Completed 200 OK in 10ms (Views: 9.8ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.5ms)
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page title"}
+Completed 200 OK in 11ms (Views: 10.6ms)
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Completed 200 OK in 11ms (Views: 10.6ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb within layouts/lolita/application (42.1ms)
+Completed   in 59ms
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (1.0ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.1ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (13.2ms)
+Completed   in 84ms
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.7ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.1ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (5.0ms)
+Completed   in 30ms
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb within layouts/lolita/application (22166.7ms)
+Completed   in 22173ms
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.9ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.3ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (6.1ms)
+Completed   in 34ms
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.9ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.4ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (6.0ms)
+Completed   in 35ms
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.6ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.4ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (5.8ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb within layouts/lolita/application (77.0ms)
+Completed   in 83ms
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.8ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.1ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (5.4ms)
+Completed   in 29ms
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.7ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.1ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (28.2ms)
+Completed   in 53ms
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.8ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.1ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (5.2ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb within layouts/lolita/application (21.4ms)
+Completed 200 OK in 27ms (Views: 26.7ms)
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.9ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.0ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (4.7ms)
+Completed 200 OK in 21ms (Views: 21.1ms)
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.8ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.1ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (4.9ms)
+Completed 200 OK in 23ms (Views: 22.1ms)
+  Processing by Lolita::I18nController#index as HTML
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.7ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.1ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (4.9ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.erb within layouts/lolita/application (22.1ms)
+Completed 200 OK in 28ms (Views: 27.7ms)
+  Processing by Lolita::I18nController#edit as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.9ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.2ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (5.6ms)
+Completed 200 OK in 25ms (Views: 24.6ms)
+  Processing by Lolita::I18nController#update as HTML
+  Parameters: {"id"=>"en.Page title"}
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/shared/_header.html.erb (0.8ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_tree.html.erb (1.0ms)
+Rendered /home/kungs/a_work/ruby_docs/lolita/app/views/components/lolita/navigation/_display.html.erb (4.8ms)
+Completed 200 OK in 20ms (Views: 19.7ms)

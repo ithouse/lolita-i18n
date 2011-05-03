@@ -1,0 +1,1 @@
+Lolita.add_module Lolita::I18n
