@@ -1,4 +1,4 @@
-module LolitaFileUpload
+module LolitaI18n
   module Generators
     class InstallGenerator < Rails::Generators::Base
       include Lolita::Generators::FileHelper
