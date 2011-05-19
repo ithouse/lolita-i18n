@@ -1,6 +1,5 @@
 $:<<File.dirname(__FILE__) unless $:.include?(File.dirname(__FILE__))
-
-require File.expand_path("../../../lolita/lib/lolita",__FILE__)
+require 'redis'
 
 module Lolita
   module I18n
