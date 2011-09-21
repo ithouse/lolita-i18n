@@ -1,25 +1,5 @@
 <% content_for :style do %>
- <style type="text/css">
-  div.i18n-box ul {
-    list-style-type: none;
-    background: url(/images/lolita/i18n/vline.png) repeat-y; 
-    margin: 0; 
-    padding: 0; 
-    margin-left: 10px;
-  }
-  div.i18n-box ul li{
-    margin: 0; 
-    padding: 0 12px; 
-    line-height: 16px; 
-    background: url(/images/lolita/i18n/node.png) no-repeat; 
-  }
-  div.i18n-box ul li a {
-    font-weight: normal;
-  }
-  div.i18n-box ul li:last-child {
-    background: #F3F3F3 url(/images/lolita/i18n/lastnode.png) no-repeat;
-  }
- </style> 
+  <%= stylesheet_link_tag "lolita/i18n/application.css", :media => "screen,projection" %>
 <% end %>
 <div class="box i18n-box">
   <div class="boxtitle">
@@ -28,7 +8,7 @@
     </div>
   </div>
   <div class="list">
-    <ul>
+    <ul class="tree">
     <% translation_tree(@translations).each do |key,value| %>
       <%=render :partial=>"tree",:locals=>{:key=>key,:tree=>value} %>
     <% end %>

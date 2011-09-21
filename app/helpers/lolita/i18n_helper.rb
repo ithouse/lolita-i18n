@@ -7,7 +7,6 @@ module Lolita
         parts=key.to_s.split(".")
         put_in_tree(tree,parts,data[key],key)
       end
-      
       tree
     end
 
@@ -17,11 +16,10 @@ module Lolita
       parts.each_with_index do |phrase,index|
         if index==last_index
           unless last_tree[phrase]
-            last_tree[phrase]={:"__value__"=>{:value=>ActiveSupport::JSON.decode(value),:path=>full_path}}
+            last_tree[phrase]={:"__value__"=>{:value=>value,:path=>full_path}}
           else
-            last_tree[phrase][:__value__]={:value=>ActiveSupport::JSON.decode(value),:path=>full_path}
+            last_tree[phrase][:__value__]={:value=>value,:path=>full_path}
           end
-          
         else
           last_tree[phrase]||={}
           last_tree=last_tree[phrase]

@@ -1,7 +1,8 @@
 source "http://rubygems.org"
 
-gem "lolita", "~>3.1.6"
-gem "redis"
+gem "lolita", '3.2.0.rc.3'
+gem "sqlite3"
+gem "yajl-ruby"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

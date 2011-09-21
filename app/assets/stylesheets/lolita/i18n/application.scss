@@ -1,0 +1,57 @@
+/* 
+*= require_self
+*/
+
+div.i18n-box ul {
+  list-style-type: none;
+  background: url(image-path("lolita/i18n/vline.png")) repeat-y; 
+  margin: 0; 
+  padding: 0; 
+  margin-left: 10px;
+}
+div.i18n-box ul.tree > li  {
+  background-image: none !important;
+}
+div.i18n-box ul li{
+  margin: 0; 
+  padding: 0 12px; 
+  line-height: 16px; 
+  background: url(image-path("lolita/i18n/node.png")) no-repeat; 
+  a {
+    font-weight: normal;
+  }
+}
+div.i18n-box ul li:last-child {
+  background: #fff url(image-path("lolita/i18n/lastnode.png")) no-repeat;
+}
+div.i18n-box div.list {
+  background-color: white;
+  padding: 1em;
+}
+.i18n-language-switch{
+  float: right;
+  overflow: hidden;
+  list-style: none;
+  margin-right: 25px;
+  top: 28px;
+  position: relative;
+}
+.i18n-language-switch li{
+  float:left;
+  margin-left:10px;
+  cursor:pointer;
+}
+.i18n-language-switch li a {
+  color: #C3C3C3;
+}
+.i18n-language-switch li.active a{
+  color: #444;
+  font-weight: bold;
+  cursor:default;
+}
+p.hint {
+  font-size: 11px;
+  color: #666;
+  text-align: right;
+  span { font-weight: bold; }
+}

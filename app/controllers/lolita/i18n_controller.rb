@@ -5,11 +5,7 @@ class Lolita::I18nController < ApplicationController
   layout "lolita/application"
 
   def index
-    @translations=if ::I18n.backend.respond_to?(:store)
-      ::I18n.backend.store
-    else
-      {}
-    end 
+    @translations=Lolita::I18n.flattened_translations
   end
 
   def edit

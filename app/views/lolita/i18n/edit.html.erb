@@ -1,15 +1,34 @@
-<%= form_for :i18n, :url=>lolita_i18n_path, :html=>{:method=>:put} do |f| %>
-  <% I18n.available_locales.each do |locale| %>
-    <% new_id=@translation[:key].gsub(/^\w+./,"#{locale}.") %>
-    <%= link_to locale.to_s.humanize, edit_lolita_i18n_path(:id=>new_id), :class=>@translation[:translate_to]==locale.to_s ? "active" : nil%>
-  <% end %>
-  <h4><%=@translation[:key]%></h4>
-  <h4><%=@translation[:original_value]%></h4>
-  <br/>
-  <%= f.label "Value" %>
-  <%= text_field_tag "i18n[value]",@translation[:value] %>
-  <br/><br/>
-  <%= f.submit %>
+<% content_for :style do %>
+  <%= stylesheet_link_tag "lolita/i18n/application.css", :media => "screen,projection" %>
 <% end %>
+<div class="tab box" id="tab_edit">
+  <div class="tab-title boxtitle black" >
+    <h1>I18n edit</h1>
+    <div class="arrow"></div>
+  </div>
+  <div class="tab-content">
+    <%= render "language_wrap" %>
+    <%= form_for :i18n, :url=>lolita_i18n_path, :html=>{:method=>:put} do |f| %>
+      <div class="field string">
+        <%= f.label "Key" %>
+        <div class="field-value">
+          <%=@translation[:key]%>
+        </div>
+      </div>
+      <div class="field string">
+        <%= f.label "Value" %>
+        <div class="field-value">
+          <%= text_area_tag "i18n[value]",@translation[:value], :class =>"string" %>
+          <% if @translation[:translate_to].to_sym != ::I18n.default_locale %>
+          <p class="hint">
+            <span><%= ::I18n.default_locale %>:</span> <%=@translation[:original_value]%>
+          </p>
+          <% end unless @translation[:original_value].blank? %>
+        </div>
+      </div>
 
-<%= link_to "Next",next_lolita_i18n_path(:id=>@translation[:translate_from],:from=>@translation[:translate_to]) %>
+      <%= button_tag "Save", :type => "submit" %>
+      <%= link_to "Next",next_lolita_i18n_path(:id=>@translation[:translate_from],:from=>@translation[:translate_to]) %>
+    <% end %>
+  </div>
+</div>

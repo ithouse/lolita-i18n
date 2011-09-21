@@ -2,6 +2,9 @@
 
 Lolita I18n is Lolita[https://github.com/ithouse/lolita] plugin, that enables .yml file translation from Lolita interface.
 
+== Redis
+  By default uses `:db => 10`
+
 == Contributing to lolita-i18n
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet

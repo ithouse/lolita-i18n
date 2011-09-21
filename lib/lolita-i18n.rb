@@ -1,19 +1,40 @@
 $:<<File.dirname(__FILE__) unless $:.include?(File.dirname(__FILE__))
 require 'redis'
+require 'yajl'
 
 module Lolita
   module I18n
     autoload :Backend, 'lolita-i18n/backend'
 
-    def self.store
-      @@store
+    def self.load options={}
+      @@backend=::I18n::Backend::KeyValue.new(Redis.new({:db => 10}.merge(options)))
+      @@yaml_backend=::I18n.backend
+      ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Flatten)
+      ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Memoize)
+      ::I18n::Backend::Chain.new(Lolita::I18n.backend, @@yaml_backend)
     end
 
-    def self.store=(store)
-      @@store=store
+    def self.backend
+      @@backend
+    end
+
+    def self.yaml_backend
+      @@yaml_backend
+    end
+
+    def self.flattened_translations
+      @@yaml_backend.flatten_translations(::I18n.default_locale, merged_translations, ::I18n::Backend::Flatten::SEPARATOR_ESCAPE_CHAR, false)
+    end
+
+    def self.merged_translations
+      data={}
+      translations=@@yaml_backend.send(:translations)
+      translations.keys.each do |lang|
+        data.deep_merge!(translations[lang] || {})
+      end
+      {::I18n.default_locale => data}
     end
   end
-
 end
 
 module LolitaI18nConfiguration

@@ -4,14 +4,15 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{lolita-i18n}
+  s.name = "lolita-i18n"
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ITHouse (Latvia)", "Arturs Meisters", "Gatis Tomsons"]
-  s.date = %q{2011-05-19}
-  s.description = %q{Lolita plugin, that enables .yml files management from administrative interface. Also faster access to translations, that DB store}
-  s.email = %q{support@ithouse.lv}
+  s.date = "2011-09-21"
+  s.description = "Lolita plugin, that enables .yml files management from administrative interface. Also faster access to translations, that DB store"
+  s.email = "support@ithouse.lv"
+  s.executables = ["COPYING", "redis.conf", "Makefile", "adlist.c", "adlist.h", "adlist.o", "ae.c", "ae.h", "ae.o", "ae_epoll.c", "ae_kqueue.c", "ae_select.c", "anet.c", "anet.h", "anet.o", "aof.c", "aof.o", "config.c", "config.h", "config.o", "db.c", "db.o", "debug.c", "debug.o", "dict.c", "dict.h", "dict.o", "fmacros.h", "help.h", "intset.c", "intset.h", "intset.o", "lzf.h", "lzfP.h", "lzf_c.c", "lzf_c.o", "lzf_d.c", "lzf_d.o", "mkreleasehdr.sh", "multi.c", "multi.o", "networking.c", "networking.o", "object.c", "object.o", "pqsort.c", "pqsort.h", "pqsort.o", "pubsub.c", "pubsub.o", "rdb.c", "rdb.o", "redis-benchmark", "redis-benchmark.c", "redis-benchmark.o", "redis-check-aof", "redis-check-aof.c", "redis-check-aof.o", "redis-check-dump", "redis-check-dump.c", "redis-check-dump.o", "redis-cli", "redis-cli.c", "redis-cli.o", "redis-server", "redis.c", "redis.h", "redis.o", "release.c", "release.h", "release.o", "replication.c", "replication.o", "sds.c", "sds.h", "sds.o", "sha1.c", "sha1.h", "sha1.o", "solarisfixes.h", "sort.c", "sort.o", "syncio.c", "syncio.o", "t_hash.c", "t_hash.o", "t_list.c", "t_list.o", "t_set.c", "t_set.o", "t_string.c", "t_string.o", "t_zset.c", "t_zset.o", "testhelp.h", "util.c", "util.o", "valgrind.sup", "version.h", "vm.c", "vm.o", "ziplist.c", "ziplist.h", "ziplist.o", "zipmap.c", "zipmap.h", "zipmap.o", "zmalloc.c", "zmalloc.h", "zmalloc.o", "build-static-symbols.tcl", "generate-command-help.rb", "mktarball.sh", "redis-copy.rb", "redis-sha1.rb", "redis_init_script"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -20,9 +21,11 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "VERSION",
     "app/controllers/lolita/i18n_controller.rb",
     "app/helpers/lolita/i18n_helper.rb",
     "app/views/lolita/i18n/_tree.html.erb",
@@ -35,6 +38,7 @@ Gem::Specification.new do |s|
     "lib/lolita-i18n/backend.rb",
     "lib/lolita-i18n/module.rb",
     "lib/lolita-i18n/rails.rb",
+    "lolita-i18n.gemspec",
     "spec/controllers/lolita/i18n_controller_spec.rb",
     "spec/lolita_i18n_spec.rb",
     "spec/rails_app/app/controllers/application_controller.rb",
@@ -43,14 +47,13 @@ Gem::Specification.new do |s|
     "spec/rails_app/config/initializers/lolita_i18n.rb",
     "spec/rails_app/config/locales/en.yml",
     "spec/rails_app/config/routes.rb",
-    "spec/rails_app/log/development.log",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/ithouse/lolita-i18n}
+  s.homepage = "http://github.com/ithouse/lolita-i18n"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.1}
-  s.summary = %q{Lolita plugin, that enables .yml management}
+  s.rubygems_version = "1.8.10"
+  s.summary = "Lolita plugin, that enables .yml management"
   s.test_files = [
     "spec/controllers/lolita/i18n_controller_spec.rb",
     "spec/lolita_i18n_spec.rb",
@@ -66,23 +69,26 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<lolita>, ["~> 3.1.6"])
-      s.add_runtime_dependency(%q<redis>, [">= 0"])
+      s.add_runtime_dependency(%q<lolita>, ["= 3.2.0.rc.3"])
+      s.add_runtime_dependency(%q<sqlite3>, [">= 0"])
+      s.add_runtime_dependency(%q<yajl-ruby>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
-      s.add_dependency(%q<lolita>, ["~> 3.1.6"])
-      s.add_dependency(%q<redis>, [">= 0"])
+      s.add_dependency(%q<lolita>, ["= 3.2.0.rc.3"])
+      s.add_dependency(%q<sqlite3>, [">= 0"])
+      s.add_dependency(%q<yajl-ruby>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<lolita>, ["~> 3.1.6"])
-    s.add_dependency(%q<redis>, [">= 0"])
+    s.add_dependency(%q<lolita>, ["= 3.2.0.rc.3"])
+    s.add_dependency(%q<sqlite3>, [">= 0"])
+    s.add_dependency(%q<yajl-ruby>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
