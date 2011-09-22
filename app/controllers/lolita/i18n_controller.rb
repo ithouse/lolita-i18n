@@ -19,8 +19,7 @@ class Lolita::I18nController < ApplicationController
 
   def update
     Lolita::I18n::Backend.set(params[:id],params[:i18n])
-    next_key=Lolita::I18n::Backend.next(params[:id],Lolita::I18n::Backend.locale(params[:id]))
-    redirect_to :action=>:edit,:id=>next_key
+    redirect_to :action=>:edit, :id=>params[:id]
   end
 
 end

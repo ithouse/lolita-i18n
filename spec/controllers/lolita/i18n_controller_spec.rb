@@ -16,8 +16,8 @@ describe Lolita::I18nController do
     response.body.should match(/Page title/)
   end
 
-  it "should save transaltion" do
-    put :update, {:id=>"en.Page title"}, {:value=>"New title"}
-    response.body.should match(/New title/)
+  it "should save translation" do
+    put :update, {:id=>"en.Page title",:i18n => {:value=>"New title"}}
+    response.should redirect_to(:action=>:edit, :id=>"en.Page title")
   end
 end

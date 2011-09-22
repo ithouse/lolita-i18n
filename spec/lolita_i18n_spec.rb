@@ -11,6 +11,6 @@ describe Lolita::I18n do
   end
 
   it "should have fallback to default I18n store" do
-    I18n.backend.store["en.Page title"].gsub(/\"/,"").should == "Page title"
+    I18n.t("Page title").should == "Page title"
   end
 end

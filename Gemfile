@@ -1,11 +1,9 @@
 source "http://rubygems.org"
 
 gem "lolita", '3.2.0.rc.3'
-gem "sqlite3"
+gem "redis"
 gem "yajl-ruby"
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
 group :development do
   gem "shoulda", ">= 0"
   gem "bundler", "~> 1.0.0"
@@ -19,4 +17,5 @@ group :test do
   gem "mongo", "~> 1.3.0"
   gem "mongoid", "~> 2.0.0"
   gem "bson_ext", "~> 1.3.0"
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end

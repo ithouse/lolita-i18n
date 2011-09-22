@@ -6,12 +6,23 @@ module Lolita
   module I18n
     autoload :Backend, 'lolita-i18n/backend'
 
-    def self.load options={}
-      @@backend=::I18n::Backend::KeyValue.new(Redis.new({:db => 10}.merge(options)))
+    # Loads given key/value engine as backend
+    # place this method in rails initializer lolita.rb
+    # === Example
+    #    
+    #    I18n.backend = Lolita::I18n.load Redis.new
+    #
+    def self.load store
+      @@store=store
+      @@backend=::I18n::Backend::KeyValue.new(@@store)
       @@yaml_backend=::I18n.backend
       ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Flatten)
       ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Memoize)
       ::I18n::Backend::Chain.new(Lolita::I18n.backend, @@yaml_backend)
+    end
+
+    def self.store
+      @@store
     end
 
     def self.backend
