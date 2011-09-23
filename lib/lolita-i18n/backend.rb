@@ -22,11 +22,11 @@ module Lolita
         # Store translation, decode and store.
         # Accept:
         # * <tt>key</tt> - translation key
-        # * <tt>translation</tt> - Hash with <i>:value</i> key, that contain translation
+        # * <tt>translation</tt> - String with translation
         def set(key,translation)
           locale=translate_to(key)
           translation_key=translation_key(key)
-          value=Yajl::Parser.parse(translation[:value].to_json)
+          value=Yajl::Parser.parse(translation.to_json)
           Lolita::I18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
         end
 
@@ -44,6 +44,10 @@ module Lolita
           translate_to(key) || ::I18n.default_locale
         end
 
+        def translation_key(key)
+          (key.to_s.split('.')[1..-1]).join(".")
+        end
+        
         private
 
         def keys
@@ -69,10 +73,6 @@ module Lolita
 
         def translate_from(key,locale=nil)
           (key.to_s.split('.')[1..-1]).insert(0,locale || ::I18n.default_locale).join(".")
-        end
-
-        def translation_key(key)
-          (key.to_s.split('.')[1..-1]).join(".")
         end
 
       end

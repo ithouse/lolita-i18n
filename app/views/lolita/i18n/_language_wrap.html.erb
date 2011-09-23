@@ -1,6 +1,0 @@
-<ul class="i18n-language-switch">
-<% ::I18n.available_locales.each do |locale| %>
-  <% new_id=(@translation[:key].split('.')[1..-1]).insert(0,locale).join(".")%>
-  <%= content_tag :li, link_to(locale.to_s.humanize, edit_lolita_i18n_path(:id=>new_id)), :class => @translation[:translate_to]==locale.to_s ? "active" : nil %></li>
-<% end %>
-</ul>

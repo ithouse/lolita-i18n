@@ -7,17 +7,12 @@ describe Lolita::I18nController do
   it "should show all translations" do
     get :index
     response.should render_template("index")
-    response.body.should match(/Page title/)
-  end
-
-  it "should open edit form" do
-    get :edit, :id=>"en.Page title"
-    response.should render_template("edit")
-    response.body.should match(/Page title/)
+    response.body.should match(/#{::I18n.t('lolita-i18n.title')}/)
   end
 
   it "should save translation" do
-    put :update, {:id=>"en.Page title",:i18n => {:value=>"New title"}}
-    response.should redirect_to(:action=>:edit, :id=>"en.Page title")
+    put :update, :id=>"en.Page title",:translation=>"New title", :format => :json
+    response.body.should == {error: false}.to_json
+    ::I18n.t("Page title", :locale => :en).should == "New title"
   end
 end

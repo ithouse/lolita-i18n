@@ -5,21 +5,21 @@ class Lolita::I18nController < ApplicationController
   layout "lolita/application"
 
   def index
-    @translations=Lolita::I18n.flattened_translations
-  end
-
-  def edit
-    @translation=Lolita::I18n::Backend.get(params[:id])
-  end
-
-  def next
-    next_key=Lolita::I18n::Backend.next(params[:id],params[:from])
-    redirect_to :action=>:edit, :id=>next_key
+    @translation_keys=Lolita::I18n.flattened_translations.keys
+    @active_locale = (params[:active_locale] || next_locale).to_sym
   end
 
   def update
-    Lolita::I18n::Backend.set(params[:id],params[:i18n])
-    redirect_to :action=>:edit, :id=>params[:id]
+    respond_to do |format|
+      format.json do
+        render :nothing => true, :json => {error: !Lolita::I18n::Backend.set(params[:id],params[:translation])}
+      end
+    end
   end
 
+  private
+
+  def next_locale
+    ::I18n::available_locales.collect{|locale| locale if locale != ::I18n.default_locale}.compact.first
+  end
 end
