@@ -9,7 +9,7 @@
   .list
     %div.actions
       .filters
-        = check_box_tag "show_untranslated"
+        = check_box_tag "show_untranslated", nil, params[:show_untranslated]
         = label_tag "show_untranslated", "Show translations that need approval"
 
       %button.translate{:'data-url' => translate_untranslated_lolita_i18n_index_path, :'data-locale' => @active_locale} Translate empty translations with Google
@@ -24,10 +24,11 @@
           %th{:style => "width:90%"}= ::I18n.t(::I18n.default_locale)
       %tbody
         - @translation_keys.each do |key|
-          %tr
-            %td{:style => "width:450px", :'data-key' => key, :'data-locale' => @active_locale}
-              %p= show_translation key
-            %td{:style => "width:90%", :'data-key' => key, :'data-locale' => ::I18n.default_locale}
-              %p= ::I18n.t(key, :locale => ::I18n.default_locale, :default => "")
-              %span.hint
-                = key
+          - if !params[:show_untranslated] or is_untranslated(key)
+            %tr
+              %td{:style => "width:450px", :'data-key' => key, :'data-locale' => @active_locale}
+                %p= show_translation key
+              %td{:style => "width:90%", :'data-key' => key, :'data-locale' => ::I18n.default_locale}
+                %p= ::I18n.t(key, :locale => ::I18n.default_locale, :default => "")
+                %span.hint
+                  = key

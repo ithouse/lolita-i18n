@@ -108,6 +108,9 @@ class LolitaTranslate
     @button.removeClass('loading')
     @button.attr('disabled',false)
 
+params = (name) ->
+  decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[null])[1])
+
 $ ->
   $('.list td p').click ->
     cell = new LolitaI18nCell $(this).parent()
@@ -120,3 +123,13 @@ $ ->
   $('button.translate:first').click ->
     if confirm('Are you shure?')
       new LolitaTranslate $(this)
+  $('#show_untranslated').change ->
+    if $(this).attr('checked')
+      window.location.href = "?show_untranslated=true&" + "active_locale=" + params('active_locale')
+    else
+      locale = params('active_locale')
+      if locale
+        window.location.href = "?active_locale="+locale
+      else
+        window.location.href = window.location.href
+        

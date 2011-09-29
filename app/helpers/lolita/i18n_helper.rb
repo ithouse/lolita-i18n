@@ -17,5 +17,9 @@ module Lolita
         end
       end
     end
+
+    def is_untranslated key
+      Lolita::I18n::GoogleTranslate.get_translation(@active_locale,key)
+    end
   end
 end
