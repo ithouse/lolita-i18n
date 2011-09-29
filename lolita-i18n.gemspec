@@ -9,13 +9,12 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ITHouse (Latvia)", "Arturs Meisters", "Gatis Tomsons"]
-  s.date = "2011-09-21"
+  s.date = "2011-09-26"
   s.description = "Lolita plugin, that enables .yml files management from administrative interface. Also faster access to translations, that DB store"
   s.email = "support@ithouse.lv"
-  s.executables = ["COPYING", "redis.conf", "Makefile", "adlist.c", "adlist.h", "adlist.o", "ae.c", "ae.h", "ae.o", "ae_epoll.c", "ae_kqueue.c", "ae_select.c", "anet.c", "anet.h", "anet.o", "aof.c", "aof.o", "config.c", "config.h", "config.o", "db.c", "db.o", "debug.c", "debug.o", "dict.c", "dict.h", "dict.o", "fmacros.h", "help.h", "intset.c", "intset.h", "intset.o", "lzf.h", "lzfP.h", "lzf_c.c", "lzf_c.o", "lzf_d.c", "lzf_d.o", "mkreleasehdr.sh", "multi.c", "multi.o", "networking.c", "networking.o", "object.c", "object.o", "pqsort.c", "pqsort.h", "pqsort.o", "pubsub.c", "pubsub.o", "rdb.c", "rdb.o", "redis-benchmark", "redis-benchmark.c", "redis-benchmark.o", "redis-check-aof", "redis-check-aof.c", "redis-check-aof.o", "redis-check-dump", "redis-check-dump.c", "redis-check-dump.o", "redis-cli", "redis-cli.c", "redis-cli.o", "redis-server", "redis.c", "redis.h", "redis.o", "release.c", "release.h", "release.o", "replication.c", "replication.o", "sds.c", "sds.h", "sds.o", "sha1.c", "sha1.h", "sha1.o", "solarisfixes.h", "sort.c", "sort.o", "syncio.c", "syncio.o", "t_hash.c", "t_hash.o", "t_list.c", "t_list.o", "t_set.c", "t_set.o", "t_string.c", "t_string.o", "t_zset.c", "t_zset.o", "testhelp.h", "util.c", "util.o", "valgrind.sup", "version.h", "vm.c", "vm.o", "ziplist.c", "ziplist.h", "ziplist.o", "zipmap.c", "zipmap.h", "zipmap.o", "zmalloc.c", "zmalloc.h", "zmalloc.o", "build-static-symbols.tcl", "generate-command-help.rb", "mktarball.sh", "redis-copy.rb", "redis-sha1.rb", "redis_init_script"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".document",
@@ -23,16 +22,16 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
     "Rakefile",
     "VERSION",
+    "app/assets/javascripts/lolita/i18n/application.js.coffee",
+    "app/assets/javascripts/lolita/i18n/spin.min.js",
+    "app/assets/stylesheets/lolita/i18n/application.scss",
     "app/controllers/lolita/i18n_controller.rb",
     "app/helpers/lolita/i18n_helper.rb",
-    "app/views/lolita/i18n/_tree.html.erb",
-    "app/views/lolita/i18n/edit.html.erb",
-    "app/views/lolita/i18n/index.html.erb",
-    "app/views/lolita/i18n/new.html.erb",
-    "app/views/lolita/i18n/update.html.erb",
+    "app/views/lolita/i18n/index.html.haml",
+    "config/locales/en.yml",
+    "config/locales/lv.yml",
     "config/routes.rb",
     "lib/lolita-i18n.rb",
     "lib/lolita-i18n/backend.rb",
@@ -70,16 +69,20 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<lolita>, ["= 3.2.0.rc.3"])
-      s.add_runtime_dependency(%q<sqlite3>, [">= 0"])
-      s.add_runtime_dependency(%q<yajl-ruby>, [">= 0"])
+      s.add_runtime_dependency(%q<hiredis>, ["~> 0.3.1"])
+      s.add_runtime_dependency(%q<redis>, ["~> 2.2.2"])
+      s.add_runtime_dependency(%q<yajl-ruby>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<easy_translate>, ["~> 0.2.1"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<lolita>, ["= 3.2.0.rc.3"])
-      s.add_dependency(%q<sqlite3>, [">= 0"])
-      s.add_dependency(%q<yajl-ruby>, [">= 0"])
+      s.add_dependency(%q<hiredis>, ["~> 0.3.1"])
+      s.add_dependency(%q<redis>, ["~> 2.2.2"])
+      s.add_dependency(%q<yajl-ruby>, ["~> 1.0.0"])
+      s.add_dependency(%q<easy_translate>, ["~> 0.2.1"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
@@ -87,8 +90,10 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<lolita>, ["= 3.2.0.rc.3"])
-    s.add_dependency(%q<sqlite3>, [">= 0"])
-    s.add_dependency(%q<yajl-ruby>, [">= 0"])
+    s.add_dependency(%q<hiredis>, ["~> 0.3.1"])
+    s.add_dependency(%q<redis>, ["~> 2.2.2"])
+    s.add_dependency(%q<yajl-ruby>, ["~> 1.0.0"])
+    s.add_dependency(%q<easy_translate>, ["~> 0.2.1"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])

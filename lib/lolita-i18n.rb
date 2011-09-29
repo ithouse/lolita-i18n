@@ -3,8 +3,17 @@ require 'redis'
 require 'yajl'
 
 module Lolita
+  # === Uses Redis DB as backend
+  # All translations ar stored with full key like "en.home.index.title" -> Hello world.
+  # Translations whitch are translated with Google translate have prefix "g" -> "g.en.home.index.title".
+  # These translations should be accepted/edited and approved then they will become as normal for general use.
+  #
+  # === Other stored data
+  # => :unapproved_keys_<locale> - a SET containing all unapproved keys from GoogleTranslate
+  #
   module I18n
     autoload :Backend, 'lolita-i18n/backend'
+    autoload :GoogleTranslate, 'lolita-i18n/google_translate'
 
     # Loads given key/value engine as backend
     # place this method in rails initializer lolita.rb
@@ -33,18 +42,11 @@ module Lolita
       @@yaml_backend
     end
 
-    def self.flattened_translations
-      @@yaml_backend.flatten_translations(::I18n.default_locale, merged_translations, ::I18n::Backend::Flatten::SEPARATOR_ESCAPE_CHAR, false)
+    # returns Array of flattened keys as "home.index.title"
+    def self.flatten_keys
+      @@yaml_backend.flatten_translations(nil, @@yaml_backend.send(:translations)[::I18n.default_locale], ::I18n::Backend::Flatten::SEPARATOR_ESCAPE_CHAR, false).keys
     end
 
-    def self.merged_translations
-      data={}
-      translations=@@yaml_backend.send(:translations)
-      translations.keys.each do |lang|
-        data.deep_merge!(translations[lang] || {})
-      end
-      {::I18n.default_locale => data}
-    end
   end
 end
 

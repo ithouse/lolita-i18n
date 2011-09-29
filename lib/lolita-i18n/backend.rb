@@ -27,17 +27,12 @@ module Lolita
           locale=translate_to(key)
           translation_key=translation_key(key)
           value=Yajl::Parser.parse(translation.to_json)
-          Lolita::I18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
-        end
-
-        # Return next key that can be translated.
-        def next(key,from_locale)
-          key=(key.split('.')[1..-1]).insert(0,::I18n.default_locale).join(".").to_sym
-          value=find_translation(keys.index(key)+1,keys.size-1)
-          unless value
-            value=find_translation(0,keys.index(key))
+          if Lolita::I18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
+            Lolita::I18n::GoogleTranslate.del_translation locale, translation_key
+            true
+          else
+            false
           end
-          translate_from(value,from_locale)
         end
 
         def locale(key)
@@ -52,14 +47,6 @@ module Lolita
 
         def keys
           @keys||=Lolita::I18n.flattened_translations.keys.sort
-        end
-
-        def find_translation(from,to)
-          from.upto(to) do |index|
-            unless Yajl::Parser.parse(Lolita::I18n.backend.store[keys[index]].to_json).is_a?(Hash)
-              return keys[index]
-            end
-          end
         end
 
         def decoded_value(key)

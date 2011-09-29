@@ -8,7 +8,7 @@ class LolitaI18nCell
       @key     = @td.attr('data-key')
       @locale  = @td.attr('data-locale')
       input    = $('<textarea name="'+@key+'" />').html(@fix_quotes(@p.text().trim()))
-      input.css('width',@p.width+'px')
+      input.css('width',@p.width()+'px').css('height', @p.height()+'px')
       @p.html("")
       @td.append(input)
       input.focus()
@@ -53,10 +53,60 @@ class LolitaI18nCell
 
   remove_spinner: ->
     @spinner.stop()
-    @p.html(@value)
+    @p.text(@value)
 
   fix_quotes: (value) ->
     value.replace(/\'/g, "&#39;").replace(/\"/g, "&#34;")
+
+class LolitaTranslate
+
+  constructor: (@button)->
+    @url = @button.attr('data-url')
+    @locale = @button.attr('data-locale')
+    @add_spinner()
+    @translate()
+
+  translate: ->
+    that = this
+
+    $.ajax 
+      type: 'PUT'
+      url: @url
+      data: {active_locale: @locale}
+      dataType: 'json'
+      success: (data) ->
+        if data.errors.length > 0
+          alert("Errors\n\n" + data.errors.join("\n"))
+          that.remove_spinner()
+        if data.translated > 0
+          window.location.reload()
+        else
+          that.remove_spinner()
+      error: (request,error) ->
+        alert "Error 500"
+        that.remove_spinner()        
+
+  add_spinner: ->
+    opts =
+      lines: 10
+      length: 3
+      width: 2
+      radius: 5
+      color: '#000'
+      speed: 1
+      trail: 5
+      shadow: false
+
+    @spinner = Spinner(opts).spin()
+    @button.append(@spinner.el)
+    @button.addClass('loading')
+    @button.attr('disabled',true)
+    $(@spinner.el).css('position', 'absolute').css('top','17px').css('left','16px')
+
+  remove_spinner: ->
+    @spinner.stop()
+    @button.removeClass('loading')
+    @button.attr('disabled',false)
 
 $ ->
   $('.list td p').click ->
@@ -67,3 +117,6 @@ $ ->
     cell.edit()
   $('#active_locale').change ->
     window.location.href = "?active_locale=" + $(this).val()
+  $('button.translate:first').click ->
+    if confirm('Are you shure?')
+      new LolitaTranslate $(this)
