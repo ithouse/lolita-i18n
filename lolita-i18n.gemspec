@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ITHouse (Latvia)", "Arturs Meisters", "Gatis Tomsons"]
-  s.date = "2011-09-26"
+  s.date = "2011-09-30"
   s.description = "Lolita plugin, that enables .yml files management from administrative interface. Also faster access to translations, that DB store"
   s.email = "support@ithouse.lv"
   s.extra_rdoc_files = [
@@ -22,8 +22,10 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "app/assets/images/lolita/i18n/google_translate_icon.png",
     "app/assets/javascripts/lolita/i18n/application.js.coffee",
     "app/assets/javascripts/lolita/i18n/spin.min.js",
     "app/assets/stylesheets/lolita/i18n/application.scss",
@@ -35,16 +37,19 @@ Gem::Specification.new do |s|
     "config/routes.rb",
     "lib/lolita-i18n.rb",
     "lib/lolita-i18n/backend.rb",
+    "lib/lolita-i18n/google_translate.rb",
     "lib/lolita-i18n/module.rb",
     "lib/lolita-i18n/rails.rb",
     "lolita-i18n.gemspec",
     "spec/controllers/lolita/i18n_controller_spec.rb",
-    "spec/lolita_i18n_spec.rb",
+    "spec/lolita-i18n/backend_spec.rb",
+    "spec/lolita-i18n/google_translate_spec.rb",
     "spec/rails_app/app/controllers/application_controller.rb",
     "spec/rails_app/config/application.rb",
     "spec/rails_app/config/enviroment.rb",
     "spec/rails_app/config/initializers/lolita_i18n.rb",
     "spec/rails_app/config/locales/en.yml",
+    "spec/rails_app/config/locales/lv.yml",
     "spec/rails_app/config/routes.rb",
     "spec/spec_helper.rb"
   ]
@@ -55,7 +60,8 @@ Gem::Specification.new do |s|
   s.summary = "Lolita plugin, that enables .yml management"
   s.test_files = [
     "spec/controllers/lolita/i18n_controller_spec.rb",
-    "spec/lolita_i18n_spec.rb",
+    "spec/lolita-i18n/backend_spec.rb",
+    "spec/lolita-i18n/google_translate_spec.rb",
     "spec/rails_app/app/controllers/application_controller.rb",
     "spec/rails_app/config/application.rb",
     "spec/rails_app/config/enviroment.rb",
