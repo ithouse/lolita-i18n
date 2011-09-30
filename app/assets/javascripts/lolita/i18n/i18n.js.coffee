@@ -10,6 +10,7 @@ class LolitaI18nCell
       input    = $('<textarea name="'+@key+'" />').html(@fix_quotes(@p.text().trim()))
       input.css('width',@p.width()+'px').css('height', @p.height()+'px')
       @p.html("")
+      @p.hide()
       @td.append(input)
       input.focus()
       that = this
@@ -54,6 +55,7 @@ class LolitaI18nCell
   remove_spinner: ->
     @spinner.stop()
     @p.text(@value)
+    @p.show()
 
   fix_quotes: (value) ->
     value.replace(/\'/g, "&#39;").replace(/\"/g, "&#34;")
@@ -109,7 +111,7 @@ class LolitaTranslate
     @button.attr('disabled',false)
 
 params = (name) ->
-  decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[null])[1])
+  decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[1,null])[1])
 
 $ ->
   $('.list td p').click ->
@@ -119,17 +121,15 @@ $ ->
     cell = new LolitaI18nCell $(this).parent()
     cell.edit()
   $('#active_locale').change ->
-    window.location.href = "?active_locale=" + $(this).val()
+    show_untranslated = if params('show_untranslated') == "null" then "" else  "&show_untranslated=true"
+    window.location.href = "?active_locale=" + $(this).val() + show_untranslated
   $('button.translate:first').click ->
     if confirm('Are you shure?')
       new LolitaTranslate $(this)
   $('#show_untranslated').change ->
+    active_locale = if params('active_locale') == "null" then "" else  "active_locale=" + params('active_locale')
     if $(this).attr('checked')
-      window.location.href = "?show_untranslated=true&" + "active_locale=" + params('active_locale')
+      window.location.href = "?show_untranslated=true&" + active_locale
     else
-      locale = params('active_locale')
-      if locale
-        window.location.href = "?active_locale="+locale
-      else
-        window.location.href = window.location.href
+      window.location.href = "?" + active_locale
         

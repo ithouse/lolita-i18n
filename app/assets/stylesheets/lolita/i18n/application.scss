@@ -71,6 +71,9 @@ div.list table {
   td span.unapproved {
     color: red;
   }
+  tr td:first-child p {
+    min-height: 40px;
+  }
   td textarea {
     border: 1px solid #cdcdcd;
     -moz-border-radius: 3px;
