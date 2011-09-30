@@ -1,7 +1,7 @@
 - content_for :style do
-  = stylesheet_link_tag "lolita/i18n/application.css", :media => "screen,projection"
+  = stylesheet_link_tag "lolita/i18n/application", :media => "screen,projection"
 - content_for :script do
-  = javascript_include_tag "lolita/i18n/application", "lolita/i18n/spin.min"
+  = javascript_include_tag "lolita/i18n/application"
 .box.i18n-bo
   .boxtitle
     %h1.black= ::I18n.t('lolita-i18n.title', :default => "Static content translation")
