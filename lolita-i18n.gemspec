@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "lolita-i18n"
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ITHouse (Latvia)", "Arturs Meisters", "Gatis Tomsons"]
@@ -26,7 +26,8 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/assets/images/lolita/i18n/google_translate_icon.png",
-    "app/assets/javascripts/lolita/i18n/application.js.coffee",
+    "app/assets/javascripts/lolita/i18n/application.js",
+    "app/assets/javascripts/lolita/i18n/i18n.js.coffee",
     "app/assets/javascripts/lolita/i18n/spin.min.js",
     "app/assets/stylesheets/lolita/i18n/application.scss",
     "app/controllers/lolita/i18n_controller.rb",
