@@ -44,7 +44,7 @@ module Lolita
 
     # returns Array of flattened keys as "home.index.title"
     def self.flatten_keys
-      @@yaml_backend.flatten_translations(nil, @@yaml_backend.send(:translations)[::I18n.default_locale], ::I18n::Backend::Flatten::SEPARATOR_ESCAPE_CHAR, false).keys
+      @@yaml_backend.flatten_translations(nil, @@yaml_backend.send(:translations)[::I18n.default_locale] || {}, ::I18n::Backend::Flatten::SEPARATOR_ESCAPE_CHAR, false).keys
     end
 
   end
