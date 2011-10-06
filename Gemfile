@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "lolita", '3.2.0.rc.3'
+gem "lolita", '~>3.2.0.rc.3'
 gem "hiredis", "~> 0.3.1"
 gem "redis", "~> 2.2.2", :require => ["redis/connection/hiredis", "redis"]
 gem "yajl-ruby", "~> 1.0.0"
