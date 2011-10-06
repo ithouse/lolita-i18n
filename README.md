@@ -1,16 +1,17 @@
-= About
+# About
 
 Lolita I18n is Lolita[https://github.com/ithouse/lolita] plugin, that enables .yml file translation from WEB interface.
 
-== Usage
+## Usage
 
-- setup rails 3.1 project with ["Lolita"](https://github.com/ithouse/lolita)
-- setup [Redis DB](http://redis.io) on your server
-- add `gem 'lolita-i18n'` into Gemfile
-- add `I18n.backend = Lolita::I18n.load Redis.new` into your `config/initializers/lolita.rb`
-- open `/lolita/i18n` and start translating
+* setup rails 3.1 project with ["Lolita"](https://github.com/ithouse/lolita)
+* setup [Redis DB](http://redis.io) on your server
+* add `gem 'lolita-i18n'` into Gemfile
+* add `I18n.backend = Lolita::I18n.load Redis.new(:db => REDIS_DB)` into your `config/initializers/lolita.rb`
+* add `REDIS_DB = 10` in your production/staging environment file. 
+* open `/lolita/i18n` and start translating
 
-== Contributing to lolita-i18n
+## Contributing to lolita-i18n
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
