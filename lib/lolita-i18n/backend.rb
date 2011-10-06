@@ -22,57 +22,44 @@ module Lolita
         # Store translation, decode and store.
         # Accept:
         # * <tt>key</tt> - translation key
-        # * <tt>translation</tt> - Hash with <i>:value</i> key, that contain translation
+        # * <tt>translation</tt> - String with translation
         def set(key,translation)
           locale=translate_to(key)
           translation_key=translation_key(key)
-          value=ActiveSupport::JSON.decode(translation[:value])
-          ::I18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
-        end
-
-        # Return next key that can be translated.
-        def next(key,from_locale)
-          value=find_translation(keys.index(key)+1,keys.size-1)
-          unless value
-            value=find_translation(0,keys.index(key))
+          value=Yajl::Parser.parse(translation.to_json)
+          if Lolita::I18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
+            Lolita::I18n::GoogleTranslate.del_translation locale, translation_key
+            true
+          else
+            false
           end
-          translate_from(value,from_locale)
         end
 
         def locale(key)
           translate_to(key) || ::I18n.default_locale
         end
 
+        def translation_key(key)
+          (key.to_s.split('.')[1..-1]).join(".")
+        end
+        
         private
 
         def keys
-          @keys||=::I18n.backend.store.keys.sort
-          @keys
-        end
-
-        def find_translation(from,to)
-          from.upto(to) do |index|
-            unless ActiveSupport::JSON.decode(::I18n.backend.store[keys[index]].to_s).is_a?(Hash)
-              return keys[index]
-            end
-          end
+          @keys||=Lolita::I18n.flattened_translations.keys.sort
         end
 
         def decoded_value(key)
-          value=::I18n.backend.store[key] || ""
-          (ActiveSupport::JSON.decode(value) || "").to_s
-        end
+          value=Lolita::I18n.backend.store[key]
+          value ? (Yajl::Parser.parse(value) rescue "") : ::I18n.t(key.split('.')[1..-1].join('.'), :default => "", :locale => translate_to(key))
+        end 
 
         def translate_to(key)
           key.to_s.split(".").first
         end
 
         def translate_from(key,locale=nil)
-          key.to_s.gsub(/^\w+\./,"#{locale || ::I18n.default_locale}.")
-        end
-
-        def translation_key(key)
-          key.to_s.gsub(/^\w+\./,"")
+          (key.to_s.split('.')[1..-1]).insert(0,locale || ::I18n.default_locale).join(".")
         end
 
       end

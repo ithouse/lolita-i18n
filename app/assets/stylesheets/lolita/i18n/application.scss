@@ -1,0 +1,102 @@
+/* 
+*= require_self
+*/
+.clear { clear: both; height: 0; }
+
+div.i18n-box div.list {
+  background-color: white;
+  overflow: none;
+}
+.i18n-language-switch{
+  overflow: hidden;
+  list-style: none;
+}
+.i18n-language-switch li{
+  float:left;
+  margin-left:10px;
+  cursor:pointer;
+}
+.i18n-language-switch li a {
+  color: #C3C3C3;
+}
+.i18n-language-switch li.active a{
+  color: #444;
+  font-weight: bold;
+  cursor:default;
+}
+span.hint {
+  font-size: 11px;
+  color: #666;
+  display: block;
+}
+#i18n_edit textarea {
+  height: 100px;
+}
+div.list div.actions {
+  padding: 10px;
+  .filters {
+    float:  left;
+    position: relative;
+    line-height: 35px;
+
+    input {
+      position: absolute;
+      top: 11px;
+    }
+    label {
+      padding-top: 10px;
+      padding-left: 20px;
+    }
+  }
+  button.translate {
+    position: relative;
+    padding-left: 30px;
+    height: 34px;
+    background-image: url(image-path('lolita/i18n/google_translate_icon.png'));
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 1px 1px #eaeaea;
+    text-shadow: 0 1px 0 white;
+    border: 1px solid #bbb;
+    float: right;
+  }
+  button.loading {
+    background-image: none;
+    color: #999;
+  }
+}
+div.list table {
+  table-layout: fixed;
+  clear: both;
+  td span.unapproved {
+    color: red;
+  }
+  tr td:first-child p {
+    min-height: 40px;
+  }
+  td textarea {
+    border: 1px solid #cdcdcd;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 3px 10px;
+    width: 100%;
+    min-height: 50px;
+    color: #494949;    
+  }
+  td, th {
+    white-space: normal;
+    padding: 5px 20px;
+    line-height: 20px;
+  }
+  thead th {
+    line-height: 30px;
+    select {
+      float: right;
+      margin-top: 5px;
+    }
+  }
+}

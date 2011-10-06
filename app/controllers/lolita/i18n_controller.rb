@@ -1,30 +1,39 @@
 class Lolita::I18nController < ApplicationController
   include Lolita::Controllers::UserHelpers
-  before_filter :authenticate_lolita_user!
+  before_filter :authenticate_lolita_user!, :set_current_locale
 
   layout "lolita/application"
 
   def index
-    @translations=if ::I18n.backend.respond_to?(:store)
-      ::I18n.backend.store
-    else
-      {}
-    end 
-  end
-
-  def edit
-    @translation=Lolita::I18n::Backend.get(params[:id])
-  end
-
-  def next
-    next_key=Lolita::I18n::Backend.next(params[:id],params[:from])
-    redirect_to :action=>:edit, :id=>next_key
+    @translation_keys=Lolita::I18n.flatten_keys
   end
 
   def update
-    Lolita::I18n::Backend.set(params[:id],params[:i18n])
-    next_key=Lolita::I18n::Backend.next(params[:id],Lolita::I18n::Backend.locale(params[:id]))
-    redirect_to :action=>:edit,:id=>next_key
+    respond_to do |format|
+      format.json do
+        render :nothing => true, :json => {error: !Lolita::I18n::Backend.set(params[:id],params[:translation])}
+      end
+    end
+  end
+
+  def translate_untranslated
+    respond_to do |format|
+      format.json do
+        google_translate = Lolita::I18n::GoogleTranslate.new @active_locale
+        google_translate.run
+        render :nothing => true, :status => 200, :json => {errors: google_translate.errors, :translated => google_translate.untranslated}
+      end
+    end    
+  end
+
+  private
+
+  def next_locale
+    ::I18n::available_locales.collect{|locale| locale if locale != ::I18n.default_locale}.compact.first
+  end
+
+  def set_current_locale
+    @active_locale = (params[:active_locale] || next_locale).to_sym
   end
 
 end

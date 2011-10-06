@@ -1,33 +1,25 @@
 module Lolita
   module I18nHelper
-
-    def translation_tree(data)
-      tree={}
-      data.keys.sort.each do |key|
-        parts=key.to_s.split(".")
-        put_in_tree(tree,parts,data[key],key)
-      end
-      
-      tree
+    def locale_options
+      ::I18n::available_locales.collect{|locale| 
+        [::I18n.t(locale, :default => locale), locale] unless [::I18n.default_locale,@active_locale].include?(locale)
+      }.compact.insert(0,[::I18n.t("lolita-i18n.choose-other-language", :default => "Choose other language"),""])
     end
 
-    def put_in_tree(tree,parts,value,full_path)
-      last_tree=tree
-      last_index=parts.size-1
-      parts.each_with_index do |phrase,index|
-        if index==last_index
-          unless last_tree[phrase]
-            last_tree[phrase]={:"__value__"=>{:value=>ActiveSupport::JSON.decode(value),:path=>full_path}}
-          else
-            last_tree[phrase][:__value__]={:value=>ActiveSupport::JSON.decode(value),:path=>full_path}
-          end
-          
-        else
-          last_tree[phrase]||={}
-          last_tree=last_tree[phrase]
+    def show_translation key
+      value = ::I18n.t(key, :locale => @active_locale, :default => '')
+      unless value.blank?
+        value
+      else
+        value = Lolita::I18n::GoogleTranslate.get_translation(@active_locale,key)
+        unless value.blank?
+          content_tag(:span, value, :class => "unapproved")
         end
       end
     end
 
+    def is_untranslated key
+      Lolita::I18n::GoogleTranslate.get_translation(@active_locale,key)
+    end
   end
 end
