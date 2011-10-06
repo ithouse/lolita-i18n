@@ -13,5 +13,6 @@ doc
 
 # jeweler generated
 pkg
+Gemfile.lock
 
 spec/rails_app/log/*.log
