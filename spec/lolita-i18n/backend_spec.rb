@@ -13,6 +13,13 @@ describe Lolita::I18n::Backend do
     ::I18n.t("test-key", :locale => :en, :default => '').should == 'Hello'
   end
 
+  it "should delete key from DB if empty value given" do
+    Lolita::I18n::Backend.set("en.test-key","Hello")
+    Lolita::I18n::Backend.get("en.test-key")[:value].should == "Hello"
+    Lolita::I18n::Backend.set("en.test-key","")
+    Lolita::I18n.store.get("en.test-key").should be_nil
+  end
+
   it "should get translation into DB" do
     Lolita::I18n::Backend.get("en.test-key")[:value].should == ''
     Lolita::I18n::Backend.set("en.test-key","Hello")
