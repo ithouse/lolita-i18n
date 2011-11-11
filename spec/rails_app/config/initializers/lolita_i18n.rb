@@ -1,3 +1,4 @@
+
 Lolita.setup do |config|
   # ==> User and authentication configuration
   # Add one or more of your user classes to Lolita
@@ -11,5 +12,5 @@ Lolita.setup do |config|
   # config.authentication={
   #  current_user.is_a?(Admin) || current_user.has_role?(:admin)
   # }
-  I18n.backend = Lolita::I18n.load Redis.new(:db => 11)
+  config.i18n.store = {:db => 11}
 end

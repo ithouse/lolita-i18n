@@ -1,4 +1,9 @@
 lv:
+  en: Angļu
+  lv: Latviešu
+  ru: Krievu
+  de: Vācu
+  sv: Zviedru
   lolita-i18n:
     title: "Statiskā satura tulkošana"
     choose-other-language: "Izvēlies citu valodu"

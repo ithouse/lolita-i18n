@@ -1,4 +1,9 @@
 en:
+  en: English
+  lv: Latvian
+  ru: Russian
+  de: German
+  sv: Swedish
   lolita-i18n:
     title: "Static content translation"
     choose-other-language: "Choose other language"

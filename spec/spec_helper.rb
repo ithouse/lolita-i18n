@@ -10,7 +10,9 @@ end
 
 require 'rails'
 require 'lolita'
+require File.expand_path('lib/lolita-i18n')
 require 'webmock/rspec'
+require 'ruby-debug'
 
 if defined?(USE_RAILS)
   # require 'mongoid'
@@ -23,11 +25,11 @@ if defined?(USE_RAILS)
   require "rspec/rails"
 end
 
-require File.expand_path('lib/lolita-i18n')
+
 
 RSpec.configure do |config|
   config.mock_with :rspec
   config.before(:each) do
-    Lolita::I18n.store.flushdb
+    Lolita.i18n.store.flushdb
   end
 end

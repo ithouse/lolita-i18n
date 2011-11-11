@@ -27,7 +27,7 @@ module Lolita
           locale=translate_to(key)
           translation_key=translation_key(key)
           value=Yajl::Parser.parse(translation.to_json)
-          if Lolita::I18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
+          if Lolita.i18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
             Lolita::I18n::GoogleTranslate.del_translation locale, translation_key
             true
           else
@@ -46,11 +46,11 @@ module Lolita
         private
 
         def keys
-          @keys||=Lolita::I18n.flattened_translations.keys.sort
+          @keys||=Lolita.i18n.flattened_translations.keys.sort
         end
 
         def decoded_value(key)
-          value=Lolita::I18n.backend.store[key]
+          value=Lolita.i18n.backend.store[key]
           value ? (Yajl::Parser.parse(value) rescue "") : ::I18n.t(key.split('.')[1..-1].join('.'), :default => "", :locale => translate_to(key))
         end 
 

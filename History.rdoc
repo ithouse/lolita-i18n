@@ -1,0 +1,7 @@
+=== Version 0.2.0
+* Enhancements
+  * Redis configuration and access to attributes goes through Lolita.i18n
+  * Redis initialization process works automaticly
+
+* Changes
+  * Google translation temporary removed from

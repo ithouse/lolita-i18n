@@ -7,13 +7,13 @@
     %h1.black= ::I18n.t('lolita-i18n.title', :default => "Static content translation")
     .arrow
   .list
-    %div.actions
-      .filters
-        = check_box_tag "show_untranslated", nil, params[:show_untranslated]
-        = label_tag "show_untranslated", "Show translations that need approval"
+    / %div.actions
+    /   .filters
+    /     = check_box_tag "show_untranslated", nil, params[:show_untranslated]
+    /     = label_tag "show_untranslated", "Show translations that need approval"
 
-      %button.translate{:'data-url' => translate_untranslated_lolita_i18n_index_path, :'data-locale' => @active_locale} Translate empty translations with Google
-      .clear
+    /   %button.translate{:'data-url' => translate_untranslated_lolita_i18n_index_path, :'data-locale' => @active_locale} Translate empty translations with Google
+    /   .clear
     %table
       %thead
         %tr

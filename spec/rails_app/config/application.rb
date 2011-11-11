@@ -3,8 +3,8 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
 
-require File.expand_path("../../../../lib/lolita-i18n",__FILE__)
-require 'i18n'
+#require File.expand_path("../../../../lib/lolita-i18n",__FILE__)
+#require 'i18n'
 
 module Test
   class Application < Rails::Application

@@ -37,7 +37,7 @@ module Lolita
       def untranslated_translations
         unless @untranslated_translations
           @untranslated_translations = []
-          Lolita::I18n.flatten_keys.each do |key|
+          Lolita.i18n.flatten_keys.each do |key|
             unless unapproved_keys.include?(key)
               if !::I18n.t(key, :locale => ::I18n.default_locale, :default => '').blank? && ::I18n.t(key, :locale => @locale, :default => '').blank? && Lolita::I18n::GoogleTranslate.get_translation(@locale,key).blank?
                 value = ::I18n.t(key, :locale => ::I18n.default_locale, :default => '').to_s
@@ -50,25 +50,25 @@ module Lolita
       end
       
       def self.get_translation locale, key
-        Lolita::I18n.store.get :"g.#{locale}.#{key}"
+        Lolita.i18n.store.get :"#{locale}.g.#{key}"
       end
 
       def self.del_translation locale, key
-        Lolita::I18n.store.del :"g.#{locale}.#{key}"
+        Lolita.i18n.store.del :"#{locale}.g.#{key}"
       end
 
       private
 
       def unapproved_keys
-        @@unapproved_keys ||= Lolita::I18n.store.smembers(:"unapproved_keys_#{@locale}").map(&:to_sym)
+        @@unapproved_keys ||= Lolita.i18n.store.smembers(:"unapproved_keys_#{@locale}").map(&:to_sym)
       end
 
       def add_translation key, value
-        Lolita::I18n.store.set :"g.#{@locale}.#{key}", value
+        Lolita.i18n.store.set :"#{@locale}.g.#{key}", value
       end
 
       def add_to_unapproved key
-        Lolita::I18n.store.sadd(:"unapproved_keys_#{@locale}",key)
+        Lolita.i18n.store.sadd(:"unapproved_keys_#{@locale}",key)
       end
 
     end

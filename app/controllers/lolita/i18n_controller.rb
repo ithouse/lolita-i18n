@@ -1,11 +1,11 @@
 class Lolita::I18nController < ApplicationController
-  include Lolita::Controllers::UserHelpers
+  include Lolita::ControllerAdditions
   before_filter :authenticate_lolita_user!, :set_current_locale
 
   layout "lolita/application"
 
   def index
-    @translation_keys=Lolita::I18n.flatten_keys
+    @translation_keys=Lolita.i18n.flatten_keys
   end
 
   def update
@@ -27,6 +27,10 @@ class Lolita::I18nController < ApplicationController
   end
 
   private
+  
+  def is_lolita_resource?
+    true
+  end
 
   def next_locale
     ::I18n::available_locales.collect{|locale| locale if locale != ::I18n.default_locale}.compact.first
