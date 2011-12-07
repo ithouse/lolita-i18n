@@ -79,38 +79,38 @@ module LolitaI18nConfiguration
   end
 end
 
-begin
-  r = Redis.new
-  r.ping
-  Lolita.scope.extend(LolitaI18nConfiguration)
+Lolita.scope.extend(LolitaI18nConfiguration)
 
-  Lolita.after_setup do
-    Lolita.i18n.yaml_backend = ::I18n.backend
-    Lolita.i18n.include_modules
+Lolita.after_setup do
+  Lolita.i18n.yaml_backend = ::I18n.backend
+  Lolita.i18n.include_modules
+  begin
+    r = Redis.new
+    r.ping
     ::I18n.backend = Lolita.i18n.initialize_chain
+  rescue Errno::ECONNREFUSED => e
+    warn "Warning: Lolita was unable to connect to Redis DB: #{e}"
   end
 
-  require 'lolita-i18n/module'
-
-  if Lolita.rails3?
-    require 'lolita-i18n/rails'
-  end
-
-  Lolita.after_routes_loaded do
-    if tree=Lolita::Navigation::Tree[:"left_side_navigation"]
-      unless tree.branches.detect { |b| b.title=="System" }
-        branch=tree.append(nil, :title=>"System")
-        #mapping=Lolita::Mapping.new(:i18n_index,:singular=>:i18n,:class_name=>Object,:controller=>"lolita/i18n")
-        branch.append(Object, :title=>"I18n", :url=>Proc.new { |view, branch|
-          view.send(:lolita_i18n_index_path)
-        }, :active=>Proc.new { |view, parent_branch, branch|
-          params=view.send(:params)
-          params[:controller].to_s.match(/lolita\/i18n/)
-        })
-      end
-    end
-  end
-rescue Errno::ECONNREFUSED => e
-  warn "Warning: Lolita was unable to connect to Redis DB: #{e}"
 end
 
+require 'lolita-i18n/module'
+
+if Lolita.rails3?
+  require 'lolita-i18n/rails'
+end
+
+Lolita.after_routes_loaded do
+  if tree=Lolita::Navigation::Tree[:"left_side_navigation"]
+    unless tree.branches.detect { |b| b.title=="System" }
+      branch=tree.append(nil, :title=>"System")
+      #mapping=Lolita::Mapping.new(:i18n_index,:singular=>:i18n,:class_name=>Object,:controller=>"lolita/i18n")
+      branch.append(Object, :title=>"I18n", :url=>Proc.new { |view, branch|
+        view.send(:lolita_i18n_index_path)
+      }, :active=>Proc.new { |view, parent_branch, branch|
+        params=view.send(:params)
+        params[:controller].to_s.match(/lolita\/i18n/)
+      })
+    end
+  end
+end
