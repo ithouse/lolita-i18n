@@ -30,7 +30,7 @@ module Lolita
           if value.blank?
             del key
           else
-            if Lolita::I18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
+            if Lolita.i18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
               Lolita::I18n::GoogleTranslate.del_translation locale, translation_key
               true
             else
@@ -40,7 +40,7 @@ module Lolita
         end
 
         def del key
-          Lolita::I18n.store.del key
+          Lolita.i18n.store.del key
         end
 
         def locale(key)
