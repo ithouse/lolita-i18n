@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "lolita-i18n"
-  s.version = "0.2.0"
+  s.version = "0.1.18"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ITHouse (Latvia)", "Arturs Meisters", "Gatis Tomsons"]
-  s.date = "2011-11-11"
+  s.date = "2011-12-09"
   s.description = "Lolita plugin, that enables .yml files management from administrative interface. Also faster access to translations, that DB store"
   s.email = "support@ithouse.lv"
   s.extra_rdoc_files = [
@@ -25,11 +25,6 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "app/assets/images/lolita/i18n/google_translate_icon.png",
-    "app/assets/javascripts/lolita/i18n/application.js",
-    "app/assets/javascripts/lolita/i18n/i18n.js.coffee",
-    "app/assets/javascripts/lolita/i18n/spin.min.js",
-    "app/assets/stylesheets/lolita/i18n/application.scss",
     "app/controllers/lolita/i18n_controller.rb",
     "app/helpers/lolita/i18n_helper.rb",
     "app/views/lolita/i18n/index.html.haml",
@@ -42,6 +37,11 @@ Gem::Specification.new do |s|
     "lib/lolita-i18n/module.rb",
     "lib/lolita-i18n/rails.rb",
     "lolita-i18n.gemspec",
+    "public/images/lolita/i18n/google_translate_icon.png",
+    "public/javascripts/lolita/i18n/application.js",
+    "public/javascripts/lolita/i18n/i18n.js",
+    "public/javascripts/lolita/i18n/spin.min.js",
+    "public/stylesheets/lolita/i18n/application.css",
     "spec/controllers/lolita/i18n_controller_spec.rb",
     "spec/lolita-i18n/backend_spec.rb",
     "spec/lolita-i18n/google_translate_spec.rb",
@@ -57,7 +57,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/ithouse/lolita-i18n"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.11"
   s.summary = "Lolita plugin, that enables .yml management"
   s.test_files = [
     "spec/controllers/lolita/i18n_controller_spec.rb",
@@ -75,7 +75,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<lolita>, ["~> 3.2.0.rc.6"])
+      s.add_runtime_dependency(%q<lolita>, ["= 3.1.18"])
       s.add_runtime_dependency(%q<hiredis>, ["~> 0.3.1"])
       s.add_runtime_dependency(%q<redis>, ["~> 2.2.2"])
       s.add_runtime_dependency(%q<yajl-ruby>, ["~> 1.0.0"])
@@ -85,7 +85,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
-      s.add_dependency(%q<lolita>, ["~> 3.2.0.rc.6"])
+      s.add_dependency(%q<lolita>, ["= 3.1.18"])
       s.add_dependency(%q<hiredis>, ["~> 0.3.1"])
       s.add_dependency(%q<redis>, ["~> 2.2.2"])
       s.add_dependency(%q<yajl-ruby>, ["~> 1.0.0"])
@@ -96,7 +96,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<lolita>, ["~> 3.2.0.rc.6"])
+    s.add_dependency(%q<lolita>, ["= 3.1.18"])
     s.add_dependency(%q<hiredis>, ["~> 0.3.1"])
     s.add_dependency(%q<redis>, ["~> 2.2.2"])
     s.add_dependency(%q<yajl-ruby>, ["~> 1.0.0"])

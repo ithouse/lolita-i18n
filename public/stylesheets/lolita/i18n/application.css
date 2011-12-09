@@ -52,7 +52,7 @@ div.list div.actions {
     position: relative;
     padding-left: 30px;
     height: 34px;
-    background-image: url(image-path('lolita/i18n/google_translate_icon.png'));
+    background-image: url('/images/lolita/i18n/google_translate_icon.png');
     background-position: 5px 5px;
     background-repeat: no-repeat;
     box-shadow: inset 0 0 1px 1px #eaeaea;
