@@ -12,7 +12,6 @@ require 'rails'
 require 'lolita'
 require File.expand_path('lib/lolita-i18n')
 require 'webmock/rspec'
-require 'ruby-debug'
 
 if defined?(USE_RAILS)
   # require 'mongoid'

@@ -27,13 +27,4 @@ describe Lolita::I18nController do
     ::I18n.t("Page title", :locale => :en).should == "New title"
   end
 
-  it "should translate to google" do
-    stub_request(:post, "http://ajax.googleapis.com/ajax/services/language/translate").
-    with(:body => "v=2.0&format=text&q=true&langpair=%7Clv&q=true&langpair=%7Clv&q=Posts&langpair=%7Clv&q=Posts%20description&langpair=%7Clv&q=Comments&langpair=%7Clv&q=Comment%20description&langpair=%7Clv&q=Footer%20text&langpair=%7Clv",
-    :headers => {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
-    to_return(:status => 200, :body => '{"responseData": [{"responseData":{"translatedText":"patiess","detectedSourceLanguage":"en"},"responseDetails":null,"responseStatus":200},{"responseData":{"translatedText":"patiess","detectedSourceLanguage":"en"},"responseDetails":null,"responseStatus":200},{"responseData":{"translatedText":"Atbildes","detectedSourceLanguage":"en"},"responseDetails":null,"responseStatus":200},{"responseData":{"translatedText":"Atbildes apraksts","detectedSourceLanguage":"en"},"responseDetails":null,"responseStatus":200},{"responseData":{"translatedText":"Komentāri","detectedSourceLanguage":"en"},"responseDetails":null,"responseStatus":200},{"responseData":{"translatedText":"Cik apraksts","detectedSourceLanguage":"fr"},"responseDetails":null,"responseStatus":200},{"responseData":{"translatedText":"Kājenes tekstu","detectedSourceLanguage":"en"},"responseDetails":null,"responseStatus":200}], "responseDetails": null, "responseStatus": 200}', :headers => {})
-
-    put :translate_untranslated, :active_locale => :lv, :format => :json
-    response.body.should == {errors: [], translated: 7}.to_json
-  end
 end

@@ -18,8 +18,6 @@ module Lolita
   #   config.i18n.store = Redis.new()
   module I18n
     autoload :Backend, 'lolita-i18n/backend'
-    autoload :GoogleTranslate, 'lolita-i18n/google_translate'
-
 
     class Configuration
 
@@ -28,9 +26,7 @@ module Lolita
       def store
         unless @store
           warn "Lolita::I18n No store specified. See Lolita::I18n"
-          # warn "No Lolita::I18n store specfied."
           @store = Redis.new
-          # initialize_chain
         end
         @store
       end
@@ -66,7 +62,9 @@ module Lolita
 
       def include_modules
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Flatten)
-        ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Memoize)
+        ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Pluralization)
+        ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Metadata)
+        ::I18n::Backend::Simple.send(:include, ::I18n::Backend::InterpolationCompiler)
       end
 
     end
@@ -104,7 +102,6 @@ Lolita.after_routes_loaded do
   if tree=Lolita::Navigation::Tree[:"left_side_navigation"]
     unless tree.branches.detect { |b| b.title=="System" }
       branch=tree.append(nil, :title=>"System")
-      #mapping=Lolita::Mapping.new(:i18n_index,:singular=>:i18n,:class_name=>Object,:controller=>"lolita/i18n")
       branch.append(Object, :title=>"I18n", :url=>Proc.new { |view, branch|
         view.send(:lolita_i18n_index_path)
       }, :active=>Proc.new { |view, parent_branch, branch|

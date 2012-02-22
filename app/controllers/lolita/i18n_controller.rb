@@ -16,16 +16,6 @@ class Lolita::I18nController < ApplicationController
     end
   end
 
-  def translate_untranslated
-    respond_to do |format|
-      format.json do
-        google_translate = Lolita::I18n::GoogleTranslate.new @active_locale
-        google_translate.run
-        render :nothing => true, :status => 200, :json => {errors: google_translate.errors, :translated => google_translate.untranslated}
-      end
-    end    
-  end
-
   private
   
   def is_lolita_resource?

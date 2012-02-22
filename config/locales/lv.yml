@@ -7,3 +7,5 @@ lv:
   lolita-i18n:
     title: "Statiskā satura tulkošana"
     choose-other-language: "Izvēlies citu valodu"
+    show-untranslated: "Rādīt tikai neiztulkotos tulkojumus"
+    remove-old: "Noņemt vecos tulkojumus"

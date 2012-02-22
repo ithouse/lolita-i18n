@@ -31,7 +31,6 @@ module Lolita
             del key
           else
             if Lolita.i18n.backend.store_translations(locale,{translation_key=>value},:escape=>false)
-              Lolita::I18n::GoogleTranslate.del_translation locale, translation_key
               true
             else
               false

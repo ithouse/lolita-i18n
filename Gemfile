@@ -20,5 +20,11 @@ group :test do
   # gem "mongo", "~> 1.3.0"
   # gem "mongoid", "~> 2.0.0"
   # gem "bson_ext", "~> 1.4.0"
-  gem 'ruby-debug19', :require => 'ruby-debug'
+
+  # For ruby 1.9.3
+  # curl -OL http://rubyforge.org/frs/download.php/75414/linecache19-0.5.13.gem
+  # gem install linecache19-0.5.13.gem
+  # And then ruby-debug-base19x via
+  # gem install --pre ruby-debug-base19x
+  gem 'ruby-debug-base19x'
 end

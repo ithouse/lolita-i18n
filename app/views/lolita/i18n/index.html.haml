@@ -4,16 +4,13 @@
   = javascript_include_tag "lolita/i18n/application"
 .box.i18n-bo
   .boxtitle
-    %h1.black= ::I18n.t('lolita-i18n.title', :default => "Static content translation")
+    %h1.black= ::I18n.t('lolita-i18n.title', :default => ::I18n.t('lolita-i18n.title', :locale => 'en'))
     .arrow
   .list
-    / %div.actions
-    /   .filters
-    /     = check_box_tag "show_untranslated", nil, params[:show_untranslated]
-    /     = label_tag "show_untranslated", "Show translations that need approval"
-
-    /   %button.translate{:'data-url' => translate_untranslated_lolita_i18n_index_path, :'data-locale' => @active_locale} Translate empty translations with Google
-    /   .clear
+    %div.actions
+      .filters
+        = check_box_tag "show_untranslated", nil, params[:show_untranslated]
+        = label_tag "show_untranslated", ::I18n.t('lolita-i18n.show-untranslated', :default => ::I18n.t('lolita-i18n.show-untranslated', :locale => 'en'))
     %table
       %thead
         %tr

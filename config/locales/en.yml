@@ -7,4 +7,6 @@ en:
   lolita-i18n:
     title: "Static content translation"
     choose-other-language: "Choose other language"
+    show-untranslated: "Show only untranslated translations"
+    remove-old: "Remove old translations"
   
