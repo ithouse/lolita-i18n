@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "lolita-i18n"
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ITHouse (Latvia)", "Arturs Meisters", "Gatis Tomsons"]
-  s.date = "2011-11-11"
+  s.date = "2012-02-22"
   s.description = "Lolita plugin, that enables .yml files management from administrative interface. Also faster access to translations, that DB store"
   s.email = "support@ithouse.lv"
   s.extra_rdoc_files = [
@@ -38,13 +38,11 @@ Gem::Specification.new do |s|
     "config/routes.rb",
     "lib/lolita-i18n.rb",
     "lib/lolita-i18n/backend.rb",
-    "lib/lolita-i18n/google_translate.rb",
     "lib/lolita-i18n/module.rb",
     "lib/lolita-i18n/rails.rb",
     "lolita-i18n.gemspec",
     "spec/controllers/lolita/i18n_controller_spec.rb",
     "spec/lolita-i18n/backend_spec.rb",
-    "spec/lolita-i18n/google_translate_spec.rb",
     "spec/rails_app/app/controllers/application_controller.rb",
     "spec/rails_app/config/application.rb",
     "spec/rails_app/config/enviroment.rb",
@@ -57,12 +55,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/ithouse/lolita-i18n"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.15"
   s.summary = "Lolita plugin, that enables .yml management"
   s.test_files = [
     "spec/controllers/lolita/i18n_controller_spec.rb",
     "spec/lolita-i18n/backend_spec.rb",
-    "spec/lolita-i18n/google_translate_spec.rb",
     "spec/rails_app/app/controllers/application_controller.rb",
     "spec/rails_app/config/application.rb",
     "spec/rails_app/config/enviroment.rb",
