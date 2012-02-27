@@ -6,4 +6,5 @@ en:
   comments:
     "Title": Comments
     "Description": "Comment description"
-  "Footer": "Footer text"
+  Footer: "Footer text"
+  copyright: "Copyright %{year_from}-%{year_till}"

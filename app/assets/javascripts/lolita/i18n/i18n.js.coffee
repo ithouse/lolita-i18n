@@ -34,7 +34,7 @@ class LolitaI18nCell
       dataType: 'json'
       success: (data) ->
         if data.error
-          alert "Error saving translation " + that.key
+          alert "Error saving translation:\n\n" + data.error
         that.remove_spinner()
 
   add_spinner: ->

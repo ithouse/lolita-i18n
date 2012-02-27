@@ -1,5 +1,5 @@
 module Lolita
-  module I18n
+  module I18n   
     # Allow to operate with I18n keys and values.
     class Backend
 
@@ -24,6 +24,7 @@ module Lolita
         # * <tt>key</tt> - translation key
         # * <tt>translation</tt> - String with translation
         def set(key,translation)
+          validate_translation(key,translation)
           locale=translate_to(key)
           translation_key=translation_key(key)
           value=Yajl::Parser.parse(translation.to_json)
@@ -51,6 +52,16 @@ module Lolita
         end
         
         private
+        
+        def validate_translation key,translation
+          validate_interpolation_arguments key,translation
+        end
+
+        def validate_interpolation_arguments key,translation
+          in_translation = translation.scan(/(%{\w+})/).map{|m| m.first}.sort
+          in_original = ::I18n.t(translation_key(key), :locale => ::I18n.default_locale).scan(/(%{\w+})/).map{|m| m.first}.sort
+          raise Exceptions::MissingInterpolationArgument.new(in_original) unless in_translation == in_original
+        end
 
         def keys
           @keys||=Lolita.i18n.flattened_translations.keys.sort

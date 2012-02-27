@@ -18,7 +18,8 @@ module Lolita
   #   config.i18n.store = Redis.new()
   module I18n
     autoload :Backend, 'lolita-i18n/backend'
-
+    autoload :Exceptions, 'lolita-i18n/exceptions'
+    
     class Configuration
 
       attr_accessor :yaml_backend

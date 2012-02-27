@@ -11,7 +11,13 @@ class Lolita::I18nController < ApplicationController
   def update
     respond_to do |format|
       format.json do
-        render :nothing => true, :json => {error: !Lolita::I18n::Backend.set(params[:id],params[:translation])}
+        error = false
+        begin
+          Lolita::I18n::Backend.set(params[:id],params[:translation])
+        rescue Lolita::I18n::Exceptions::MissingInterpolationArgument => e
+          error = e.to_s
+        end
+        render :nothing => true, :json => {error: error}
       end
     end
   end
