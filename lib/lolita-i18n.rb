@@ -52,9 +52,8 @@ module Lolita
       end
 
       def load_translations
-        if !self.yaml_backend.send(:translations) || self.yaml_backend.send(:translations).empty?
-          self.yaml_backend.load_translations
-        end
+        # don't cache
+        self.yaml_backend.load_translations
       end
 
       def initialize_chain
