@@ -8,6 +8,8 @@ lv:
   lolita-i18n:
     title: "Statiskā satura tulkošana"
     choose-other-language: "Izvēlies citu valodu"
+    "Successful update": "Atslēga saglabāta veiksmīgi"
+    Error: "Kļūda saglabājot atslēgu"
   lolita:
     navigation:
       system: "Sistēma"

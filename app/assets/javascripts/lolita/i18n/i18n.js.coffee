@@ -27,14 +27,17 @@ class LolitaI18nCell
   
   save: ->
     that = this
+    new_id = Base64.encode(@locale + '.' + that.key)
     $.ajax 
       type: 'PUT'
-      url: '/lolita/i18n/' + @locale + '.' + that.key
+      url: '/lolita/i18n/' + new_id
       data: {translation: that.value}
       dataType: 'json'
       success: (data) ->
         if data.error
           alert "Error saving translation " + that.key
+        that.remove_spinner()
+      error: (request) ->
         that.remove_spinner()
 
   add_spinner: ->

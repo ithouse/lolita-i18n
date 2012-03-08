@@ -13,7 +13,11 @@ class Lolita::I18nController < ApplicationController
     authorize!(:update, self.resource_class)
     respond_to do |format|
       format.json do
-        render :nothing => true, :json => {error: !Lolita::I18n::Backend.set(params[:id],params[:translation])}
+        if Lolita::I18n::Backend.set(Base64.decode64(params[:id]),params[:translation])
+          alert(::I18n.t("lolita-i18n.Successful update"))
+        else
+          error(::I18n.t("lolita-i18n.Error"))
+        end
       end
     end
   end
