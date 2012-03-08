@@ -13,3 +13,5 @@ lv:
   lolita:
     navigation:
       system: "Sistēma"
+    show-untranslated: "Rādīt tikai neiztulkotos tulkojumus"
+    remove-old: "Noņemt vecos tulkojumus"

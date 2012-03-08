@@ -11,4 +11,6 @@ en:
   lolita:
     navigation:
       system: "System"
+    show-untranslated: "Show only untranslated translations"
+    remove-old: "Remove old translations"
   

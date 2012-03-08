@@ -25,4 +25,9 @@ describe Lolita::I18n::Backend do
     Lolita::I18n::Backend.set("en.test-key","Hello")
     Lolita::I18n::Backend.get("en.test-key")[:value].should == "Hello"
   end
+
+  it "should raise Lolita::I18n::Exceptions::MissingInterpolationArgument" do
+    lambda {Lolita::I18n::Backend.set("lv.copyright","Autortiesibas 2010-2012")}.should raise_error(Lolita::I18n::Exceptions::MissingInterpolationArgument)
+    lambda {Lolita::I18n::Backend.set("lv.copyright","Autortiesibas %{year_from}-%{year_till}")}.should_not raise_error(Lolita::I18n::Exceptions::MissingInterpolationArgument)
+  end
 end

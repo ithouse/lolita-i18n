@@ -35,7 +35,7 @@ class LolitaI18nCell
       dataType: 'json'
       success: (data) ->
         if data.error
-          alert "Error saving translation " + that.key
+          alert "Error saving translation:\n\n" + data.error
         that.remove_spinner()
       error: (request) ->
         that.remove_spinner()
@@ -131,7 +131,7 @@ $ ->
       new LolitaTranslate $(this)
   $('#show_untranslated').change ->
     active_locale = if params('active_locale') == "null" then "" else  "active_locale=" + params('active_locale')
-    if $(this).attr('checked')
+    if $(this).is(':checked')
       window.location.href = "?show_untranslated=true&" + active_locale
     else
       window.location.href = "?" + active_locale

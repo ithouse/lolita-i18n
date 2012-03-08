@@ -13,24 +13,19 @@ class Lolita::I18nController < ApplicationController
     authorize!(:update, self.resource_class)
     respond_to do |format|
       format.json do
-        if Lolita::I18n::Backend.set(Base64.decode64(params[:id]),params[:translation])
-          alert(::I18n.t("lolita-i18n.Successful update"))
-        else
+        begin
+          if Lolita::I18n::Backend.set(Base64.decode64(params[:id]),params[:translation])
+            alert(::I18n.t("lolita-i18n.Successful update"))
+          else
+            error(::I18n.t("lolita-i18n.Error"))
+          end
+          render :nothing => true, :json => {error: error}
+        rescue Lolita::I18n::Exceptions::MissingInterpolationArgument => e
           error(::I18n.t("lolita-i18n.Error"))
+          render :nothing => true, :json => {error: e.to_s}
         end
       end
     end
-  end
-
-  def translate_untranslated
-    authorize!(:update,self.resource_class)
-    respond_to do |format|
-      format.json do
-        google_translate = Lolita::I18n::GoogleTranslate.new @active_locale
-        google_translate.run
-        render :nothing => true, :status => 200, :json => {errors: google_translate.errors, :translated => google_translate.untranslated}
-      end
-    end    
   end
 
   private
