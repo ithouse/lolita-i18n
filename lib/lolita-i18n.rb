@@ -37,10 +37,10 @@ module Lolita
 
       def store=(possible_store)
         @store = if possible_store.is_a?(Hash)
-                   Redis.new(possible_store)
-                 else
-                   possible_store
-                 end
+           Redis.new(possible_store)
+         else
+           possible_store
+         end
         @store
       end
 
@@ -100,17 +100,17 @@ if Lolita.rails3?
   require 'lolita-i18n/rails'
 end
 
-Lolita.after_routes_loaded do
-  if tree=Lolita::Navigation::Tree[:"left_side_navigation"]
-    unless tree.branches.detect { |b| b.title=="System" }
-      branch=tree.append(nil, :title=>"System")
-      #mapping=Lolita::Mapping.new(:i18n_index,:singular=>:i18n,:class_name=>Object,:controller=>"lolita/i18n")
-      branch.append(Object, :title=>"I18n", :url=>Proc.new { |view, branch|
-        view.send(:lolita_i18n_index_path)
-      }, :active=>Proc.new { |view, parent_branch, branch|
-        params=view.send(:params)
-        params[:controller].to_s.match(/lolita\/i18n/)
-      })
-    end
-  end
-end
+# Lolita.after_routes_loaded do
+#   if tree=Lolita::Navigation::Tree[:"left_side_navigation"]
+#     unless tree.branches.detect { |b| b.title=="System" }
+#       branch=tree.append(nil, :title=>"System")
+#       #mapping=Lolita::Mapping.new(:i18n_index,:singular=>:i18n,:class_name=>Object,:controller=>"lolita/i18n")
+#       branch.append(Object, :title=>"I18n", :url=>Proc.new { |view, branch|
+#         view.send(:lolita_i18n_index_path)
+#       }, :active=>Proc.new { |view, parent_branch, branch|
+#         params=view.send(:params)
+#         params[:controller].to_s.match(/lolita\/i18n/)
+#       })
+#     end
+#   end
+# end

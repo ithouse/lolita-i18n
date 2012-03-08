@@ -4,7 +4,11 @@ en:
   ru: Russian
   de: German
   sv: Swedish
+  lt: Lithuanian
   lolita-i18n:
     title: "Static content translation"
     choose-other-language: "Choose other language"
+  lolita:
+    navigation:
+      system: "System"
   

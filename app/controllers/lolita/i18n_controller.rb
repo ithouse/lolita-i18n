@@ -5,10 +5,12 @@ class Lolita::I18nController < ApplicationController
   layout "lolita/application"
 
   def index
+    authorize!(:read, self.resource_class)
     @translation_keys=Lolita.i18n.flatten_keys
   end
 
   def update
+    authorize!(:update, self.resource_class)
     respond_to do |format|
       format.json do
         render :nothing => true, :json => {error: !Lolita::I18n::Backend.set(params[:id],params[:translation])}
@@ -17,6 +19,7 @@ class Lolita::I18nController < ApplicationController
   end
 
   def translate_untranslated
+    authorize!(:update,self.resource_class)
     respond_to do |format|
       format.json do
         google_translate = Lolita::I18n::GoogleTranslate.new @active_locale
@@ -28,8 +31,8 @@ class Lolita::I18nController < ApplicationController
 
   private
   
-  def is_lolita_resource?
-    true
+  def lolita_mapping
+    params[:action] == "translate_untranslated" ? Lolita.mappings[:i18n] : super 
   end
 
   def next_locale

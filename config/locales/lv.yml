@@ -4,6 +4,10 @@ lv:
   ru: Krievu
   de: Vācu
   sv: Zviedru
+  lt: Lietuviešu
   lolita-i18n:
     title: "Statiskā satura tulkošana"
     choose-other-language: "Izvēlies citu valodu"
+  lolita:
+    navigation:
+      system: "Sistēma"
