@@ -5,21 +5,21 @@ class Lolita::I18nController < ApplicationController
   layout "lolita/application"
 
   def index
-    authorize!(:read, self.resource_class)
+    authorization_proxy.authorize!(:read, self.resource_class)
     @translation_keys=Lolita.i18n.flatten_keys
   end
 
   def update
-    authorize!(:update, self.resource_class)
+    authorization_proxy.authorize!(:update, self.resource_class)
     respond_to do |format|
       format.json do
         begin
-          if Lolita::I18n::Backend.set(Base64.decode64(params[:id]),params[:translation])
-            alert(::I18n.t("lolita-i18n.Successful update"))
+          if saved = Lolita::I18n::Backend.set(Base64.decode64(params[:id]),params[:translation])
+            notice(::I18n.t("lolita-i18n.Successful update"))
           else
             error(::I18n.t("lolita-i18n.Error"))
           end
-          render :nothing => true, :json => {error: error}
+          render :nothing => true, :json => {error: !saved && ::I18n.t("lolita-i18n.Error") }
         rescue Lolita::I18n::Exceptions::MissingInterpolationArgument => e
           error(::I18n.t("lolita-i18n.Error"))
           render :nothing => true, :json => {error: e.to_s}

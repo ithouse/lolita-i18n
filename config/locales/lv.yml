@@ -10,8 +10,8 @@ lv:
     choose-other-language: "Izvēlies citu valodu"
     "Successful update": "Atslēga saglabāta veiksmīgi"
     Error: "Kļūda saglabājot atslēgu"
+    show-untranslated: "Rādīt tikai neiztulkotos"
   lolita:
     navigation:
       system: "Sistēma"
-    show-untranslated: "Rādīt tikai neiztulkotos tulkojumus"
     remove-old: "Noņemt vecos tulkojumus"

@@ -8,6 +8,8 @@ en:
   lolita-i18n:
     title: "Static content translation"
     choose-other-language: "Choose other language"
+    "Successful update": "Successful update"
+    Error: "Error while saving key" 
   lolita:
     navigation:
       system: "System"

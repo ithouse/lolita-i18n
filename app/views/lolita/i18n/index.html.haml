@@ -4,13 +4,13 @@
   = javascript_include_tag "lolita/i18n/application"
 .box.i18n-bo
   .boxtitle
-    %h1.black= ::I18n.t('lolita-i18n.title', :default => ::I18n.t('lolita-i18n.title', :locale => 'en'))
+    %h1.black= ::I18n.t('lolita-i18n.title', :default => ::I18n.t('lolita-i18n.title'))
     .arrow
   .list
     %div.actions
       .filters
         = check_box_tag "show_untranslated", nil, params[:show_untranslated]
-        = label_tag "show_untranslated", ::I18n.t('lolita-i18n.show-untranslated', :default => ::I18n.t('lolita-i18n.show-untranslated', :locale => 'en'))
+        = label_tag "show_untranslated", ::I18n.t('lolita-i18n.show-untranslated', :default => ::I18n.t('lolita-i18n.show-untranslated'))
     %table
       %thead
         %tr
