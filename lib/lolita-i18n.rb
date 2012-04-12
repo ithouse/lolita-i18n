@@ -17,7 +17,8 @@ module Lolita
   #   # or
   #   config.i18n.store = Redis.new()
   module I18n
-    autoload :Backend, 'lolita-i18n/backend'
+    #autoload :Backend, 'lolita-i18n/backend'
+    autoload :Request, 'lolita-i18n/request'
     autoload :Exceptions, 'lolita-i18n/exceptions'
     
     class Configuration
@@ -77,7 +78,7 @@ module LolitaI18nConfiguration
   end
 end
 
-Lolita.scope.extend(LolitaI18nConfiguration)
+Lolita.configuration.extend(LolitaI18nConfiguration)
 
 Lolita.after_setup do
   Lolita.i18n.yaml_backend = ::I18n.backend

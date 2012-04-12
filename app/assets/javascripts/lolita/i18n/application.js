@@ -1,2 +1,2 @@
 //= require jquery
-//= require_tree .
+//= require ./i18n
