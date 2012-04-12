@@ -55,7 +55,9 @@ class Lolita::I18nController < ApplicationController
   end
 
   def set_current_locale
-    @active_locale = (params[:active_locale] || next_locale).to_sym
+    @active_locale = ::I18n.available_locales.include?(params[:active_locale].to_s.to_sym) ? params[:active_locale] : nil
+    @active_locale ||= next_locale
+    @active_locale = @active_locale.to_sym
   end
 
   def i18n_request

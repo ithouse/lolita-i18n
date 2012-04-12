@@ -1,6 +1,18 @@
 $(function(){
-  $("textarea").focus(function(){
-    $(this).data("original-text",$(this).val())
+  params = function(name){
+    decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[1,null])[1])
+  }
+  $('#active_locale').change(function(){
+    show_untranslated = params('show_untranslated') == "null" ? "" :  "&show_untranslated=true"
+    window.location.href = "?active_locale=" + $(this).val() + show_untranslated
+  })
+  $('#show_untranslated').change(function(){
+     active_locale = params('active_locale') == "null" ? "" :  ("active_locale=" + params('active_locale'))
+    if($(this).is(':checked')){
+      window.location.href = "?show_untranslated=true&" + active_locale
+    }else{
+      window.location.href = "?" + active_locale
+    }
   })
 
   $("textarea").blur(function(){
