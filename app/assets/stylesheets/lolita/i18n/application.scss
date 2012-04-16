@@ -3,10 +3,10 @@
 */
 .clear { clear: both; height: 0; }
 
-div.i18n-box div.list {
+/*div.i18n-box div.list {
   background-color: white;
   overflow: none;
-}
+}*/
 .i18n-language-switch{
   overflow: hidden;
   list-style: none;
@@ -29,9 +29,7 @@ span.hint {
   color: #666;
   display: block;
 }
-#i18n_edit textarea {
-  height: 100px;
-}
+
 div.list div.actions {
   padding: 10px;
   .filters {
@@ -68,7 +66,8 @@ div.list table {
     box-sizing: border-box;
     padding: 3px 10px;
     width: 100%;
-    min-height: 50px;
+    min-height: 25px;
+    height: 25px;
     color: #494949;    
   }
   td, th {
@@ -76,10 +75,12 @@ div.list table {
     padding: 5px 20px;
     line-height: 20px;
   }
+  td.grouped{
+    padding-left: 0px;
+  }
   thead th {
     line-height: 30px;
     select {
-      float: right;
       margin-top: 5px;
     }
   }

@@ -17,3 +17,5 @@ Gemfile.lock
 
 spec/rails_app/log/*.log
 .idea
+
+.rvmrc

@@ -1,18 +1,36 @@
 $(function(){
-  params = function(name){
-    decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[1,null])[1])
-  }
+
   $('#active_locale').change(function(){
-    show_untranslated = params('show_untranslated') == "null" ? "" :  "&show_untranslated=true"
-    window.location.href = "?active_locale=" + $(this).val() + show_untranslated
+    params("active_locale",$(this).val())
   })
+
   $('#show_untranslated').change(function(){
-     active_locale = params('active_locale') == "null" ? "" :  ("active_locale=" + params('active_locale'))
-    if($(this).is(':checked')){
-      window.location.href = "?show_untranslated=true&" + active_locale
-    }else{
-      window.location.href = "?" + active_locale
-    }
+    params("show_untranslated", $(this).is(':checked') ? "1" : false)
+  })
+
+  var resize  = function($textarea) {
+    $textarea[0].style.height = 'auto';
+    $textarea[0].style.height = ($textarea[0].scrollHeight  + $textarea.data("offset") ) + 'px';  
+  }
+
+  var reset_size = function($textarea){
+    $textarea[0].style.height = 'auto';
+    $textarea[0].style.height = ($textarea.data("offset") ) + 'px'; 
+  }
+
+  $("textarea").each(function(){
+    var t = $(this)[0]
+    var offset= !window.opera ? (t.offsetHeight - t.clientHeight) : (t.offsetHeight + parseInt(window.getComputedStyle(t, null).getPropertyValue('border-top-width'))) ;
+    $(this).data("offset",offset)
+  })
+
+  $("textarea").keyup(function(){
+    resize($(this))
+  })
+
+  $("textarea").focus(function(){
+    resize($(this))
+    $(this).data("original-text",$(this).val())
   })
 
   $("textarea").blur(function(){
@@ -24,36 +42,46 @@ $(function(){
       var $textareas = $("td[data-key='"+key+"'] textarea");
       var result_arr = []
       var result_json = {}
+      var result_str = ""
 
-      $textareas.each(function(index){
-        var current_key = locale + "." + $(this).attr("name")
-        var m_data = current_key.match(/\[(\d+)\]$/)
-        if(m_data){
-          result_arr[parseInt(m_data[m_data.length-1])] = $(this).val()
-        }else{
-          keys = current_key.split(".")
-          json_key = keys[keys.length-1]
-          result_json[json_key] = $(this).val()
-        }
-      })
+      if($textareas.length > 1){
+        $textareas.each(function(index){
+          var current_key = locale + "." + $(this).attr("name")
+          var m_data = current_key.match(/\[(\d+)\]$/)
+          if(m_data){
+            result_arr[parseInt(m_data[m_data.length-1])] = $(this).val()
+          }else{
+            keys = current_key.split(".")
+            json_key = keys[keys.length-1]
+            result_json[json_key] = $(this).val()
+          }
+        })
+      }else{
+        result_str = $textareas.eq(0).val()
+      }
+      
 
       that = this
       new_id = Base64.encode(key)
-      $.ajax({
-        type: 'PUT',
-        url: '/lolita/i18n/' + new_id,
-        data: {translation: result_arr.length == 0 ? result_json : result_arr},
-        dataType: 'json',
-        success: function(data){
-          if(data.error){
-            alert("Error saving translation:\n\n" + data.error)
-          }
-          //that.remove_spinner()
-        },
-        error: function(request){}
-          //that.remove_spinner()
-      })
+      save(result_str.length > 0 ? result_str : (result_arr.length > 0 ? result_arr : result_json), new_id)
     }
-
+    reset_size($(this))
   })
+
+  var save = function(post_data,id){
+    $.ajax({
+      type: 'PUT',
+      url: '/lolita/i18n/' + id,
+      data: {translation: post_data},
+      dataType: 'json',
+      success: function(data){
+        if(data.error){
+          show_error_msg( data.error)
+        }
+      },
+      error: function(request){
+        show_error_msg("Connection error! Translation is not saved!")
+      }
+    })
+  }
 })

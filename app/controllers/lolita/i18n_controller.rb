@@ -34,11 +34,10 @@ class Lolita::I18nController < ApplicationController
           end
           render :nothing => true, :json => {error: !saved && ::I18n.t("lolita-i18n.Error") }
         rescue Lolita::I18n::Exceptions::MissingInterpolationArgument => e
-          error(::I18n.t("lolita-i18n.Error"))
           render :nothing => true, :json => {error: e.to_s}
         rescue Exception => e
-          error(::I18n.t("lolita-i18n.Error"))
-          render :nothing => true, :json => {}
+          debugger
+          render :nothing => true, :json => {error: "#{::I18n.t("lolita-i18n.Error")}"}
         end
       end
     end
@@ -58,6 +57,7 @@ class Lolita::I18nController < ApplicationController
     @active_locale = ::I18n.available_locales.include?(params[:active_locale].to_s.to_sym) ? params[:active_locale] : nil
     @active_locale ||= next_locale
     @active_locale = @active_locale.to_sym
+    @active_locale = nil if @active_locale == ::I18n.default_locale
   end
 
   def i18n_request

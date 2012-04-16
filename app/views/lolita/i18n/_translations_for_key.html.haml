@@ -1,6 +1,6 @@
 - if value[:original_translation].is_a?(Hash) || value[:original_translation].is_a?(Array)
-  %td{:colspan => "2"}
-    %table{:style => "margin-left:20px"}
+  %td.grouped{:colspan => "2"}
+    %table
       - if value[:original_translation].is_a?(Hash)
         - value[:original_translation].each do |c_key,c_value|
           %tr

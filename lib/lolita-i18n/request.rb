@@ -1,3 +1,5 @@
+require "json"
+
 module Lolita
   module I18n
     class Request
@@ -17,12 +19,20 @@ module Lolita
         private
 
         def validate_array(key,values)
+          translation = Translation.new(key,values)
+          if translation.original.class != values.class || translation.original.size != values.size
+            raise Exceptions::TranslationDoesNotMatch.new(values,translation.original) 
+          end
           values.each_with_index do |value,index|
             validate_value(key,value,:index => index)
           end
         end
 
         def validate_hash(key,hash)
+          translation = Translation.new(key,hash)
+          if translation.original.class != hash.class || (hash.keys.map(&:to_sym) - translation.original.keys).any?
+            raise Exceptions::TranslationDoesNotMatch.new(hash,translation.original) 
+          end
           hash.each do |hash_key,value|
             validate_value(key,value, :key => hash_key)
           end
@@ -30,18 +40,19 @@ module Lolita
 
         def validate_value(key,value, options = {})
           value = value.to_s 
-          unless interpolations(value) == interpolations(current_value_for_original(key,value,options))
-            raise Exceptions::MissingInterpolationArgument.new(interpolations(value))
+          original_value = current_value_for_original(key,value,options)
+          unless interpolations(value) == interpolations(original_value)
+            raise Exceptions::MissingInterpolationArgument.new(interpolations(original_value))
           end
         end
 
         def current_value_for_original(key,value,options = {})
           translation = Translation.new(key,value)
-          original = ::I18n.t(translation.key, :locale => ::I18n.default_locale)
+          original = translation.original
           if original.is_a?(Hash)
-            original[options[:key]]
+            original[options[:key].to_sym]
           elsif original.is_a?(Array)
-            original[options[:index]]
+            original[options[:index].to_i]
           else
             original
           end
@@ -64,7 +75,7 @@ module Lolita
         end
 
         def locale
-          locale_from_key || ::I18n.default_locale
+          (locale_from_key || ::I18n.default_locale).to_sym
         end
 
         def for_store
@@ -73,6 +84,10 @@ module Lolita
 
         def key
           @key_parts[1..-1].join(".")
+        end
+
+        def original
+          @original ||= ::I18n.t(self.key, :locale => ::I18n.default_locale)
         end
 
         private
@@ -135,7 +150,7 @@ module Lolita
       end
 
       def update_key
-        self.set(Base64.decode64(params[:id]),params[:translation])
+        set(Base64.decode64(params[:id]),params[:translation])
       end
 
       def validator
@@ -146,13 +161,14 @@ module Lolita
         Lolita.i18n.store.del key
       end
 
+      private 
+      
       def set(key,translation)
-        validator.validate(key,translation)
         translation = Translation.new(key,translation)
-
         if translation.value.blank?
           self.delete_key(key)
         else
+          validator.validate(key,translation.value)
           !!Lolita.i18n.backend.store_translations(*translation.for_store)
         end
       end

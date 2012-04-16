@@ -3,6 +3,7 @@ require 'redis'
 require 'yajl'
 require 'lolita'
 
+
 module Lolita
   # === Uses Redis DB as backend
   # All translations ar stored with full key like "en.home.index.title" -> Hello world.
@@ -17,7 +18,6 @@ module Lolita
   #   # or
   #   config.i18n.store = Redis.new()
   module I18n
-    #autoload :Backend, 'lolita-i18n/backend'
     autoload :Request, 'lolita-i18n/request'
     autoload :Exceptions, 'lolita-i18n/exceptions'
     
@@ -90,10 +90,11 @@ Lolita.after_setup do
   rescue Errno::ECONNREFUSED => e
     warn "Warning: Lolita was unable to connect to Redis DB: #{e}"
   end
-
+  true
 end
 
 require 'lolita-i18n/module'
+require 'lolita-i18n/version'
 
 if Lolita.rails3?
   require 'lolita-i18n/rails'
