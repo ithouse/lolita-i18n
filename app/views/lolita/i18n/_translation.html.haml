@@ -1,6 +1,0 @@
-%td{:style => "width:450px", :'data-key' => "#{active_locale}.#{original_key}", :'data-locale' => active_locale}
-  %p= text_area_tag "#{active_locale}.#{key}", translation
-%td{:style => "width:90%", :'data-key' => "#{::I18n.default_locale}.#{original_key}", :'data-locale' => ::I18n.default_locale}
-  %p= text_area_tag "#{::I18n.default_locale}.#{key}", original
-  - unless key.blank?
-    %span.hint= key

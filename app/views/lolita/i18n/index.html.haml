@@ -19,7 +19,22 @@
               = select_tag :active_locale, options_for_select(locale_options,@active_locale.to_sym), :id => "active_locale"
           %th{:style => "width:90%"}= raw(sort_link)
       %tbody
+        - active_locale = @active_locale
         - @translations.each do |key,value|
           - if @active_locale && any_translation_visible?(value[:translation])
             %tr
-              = render :partial => "translations_for_key", :locals => {:key => key, :value => value, :active_locale => @active_locale}
+              - if value[:original_translation].is_a?(Hash) || value[:original_translation].is_a?(Array)
+                %td.grouped{:colspan => "2"}
+                  %table
+                    - if value[:original_translation].is_a?(Hash)
+                      - value[:original_translation].each do |c_key,c_value|
+                        - if translation_visible?(value[:translation][c_key])
+                          %tr
+                            = raw(translation(@active_locale,"#{key}.#{c_key}",key,value[:translation][c_key],c_value))
+                    - else
+                      - value[:original_translation].each_with_index do |c_value,index|
+                        - if translation_visible?(value[:translation][index])
+                          %tr
+                            = raw(translation(@active_locale, "#{key}[#{index}]", key, value[:translation][index], c_value))
+              - else
+                = raw(translation(@active_locale, key, key, value[:translation], value[:original_translation]))

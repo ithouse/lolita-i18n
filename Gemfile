@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gemspec
 
-# gem 'lolita', :path=>File.expand_path('../../lolita',__FILE__)
+ gem 'lolita', :path=>File.expand_path('../../lolita',__FILE__)
 
 group :test do
   gem "rails", "~>3.2.2"
@@ -13,5 +13,6 @@ group :test do
   gem "rspec-rails", "~>2.9.0"
   gem "capybara", "~> 1.1.2"
   gem 'capybara-webkit', "~>0.11.0"
+  gem "sass", "~>3.1.15"
   
 end

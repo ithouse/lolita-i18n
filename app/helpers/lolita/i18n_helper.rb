@@ -7,6 +7,22 @@ module Lolita
       }
     end
 
+    def translation active_locale, key, original_key, translation, original 
+      %Q{
+        <td style="width:450px", data-key="#{active_locale}.#{original_key}" data-locale="#{active_locale}">
+          <p>
+            #{text_area_tag "#{active_locale}.#{key}", translation}
+          </p>
+        </td>
+        <td style="width:90%" data-key="#{::I18n.default_locale}.#{original_key}" data-locale="#{::I18n.default_locale}">
+          <p>
+            #{text_area_tag "#{::I18n.default_locale}.#{key}", original}
+          </p>
+          #{!key.blank? && "<span class='hint'>#{key}</span>"} 
+        </td>
+      }
+    end
+
     def translation_visible? value
       !!(!params[:show_untranslated] || value.is_a?(Array) || value.is_a?(Hash) || (params[:show_untranslated] && value.blank?))
     end
