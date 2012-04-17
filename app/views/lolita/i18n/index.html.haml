@@ -20,6 +20,6 @@
           %th{:style => "width:90%"}= raw(sort_link)
       %tbody
         - @translations.each do |key,value|
-          - if @active_locale && (!params[:show_untranslated] or is_untranslated(key))
+          - if @active_locale && any_translation_visible?(value[:translation])
             %tr
               = render :partial => "translations_for_key", :locals => {:key => key, :value => value, :active_locale => @active_locale}

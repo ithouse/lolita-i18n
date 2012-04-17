@@ -9,16 +9,7 @@ class Lolita::I18nController < ApplicationController
     @translations = i18n_request.translations(@active_locale)
 
     if params[:sort] && params[:sort].to_s == "1"
-      @translations = @translations.sort do |pair_a,pair_b|
-        value_a,value_b = pair_a[1],pair_b[1]
-        if value_a[:original_translation].is_a?(Hash) || value_a[:original_translation].is_a?(Array) ||  value_b[:original_translation].is_a?(Hash) || value_b[:original_translation].is_a?(Array)
-          -1
-        elsif !value_a[:original_translation] || !value_b[:original_translation].to_s
-          1
-        else
-          value_a[:original_translation].to_s <=> value_b[:original_translation].to_s
-        end
-      end
+      @translations = i18n_request.sort_translations(@translations)
     end
   end
 
@@ -33,11 +24,10 @@ class Lolita::I18nController < ApplicationController
             error(::I18n.t("lolita-i18n.Error"))
           end
           render :nothing => true, :json => {error: !saved && ::I18n.t("lolita-i18n.Error") }
-        rescue Lolita::I18n::Exceptions::MissingInterpolationArgument => e
-          render :nothing => true, :json => {error: e.to_s}
+        rescue Lolita::I18n::Exceptions::MissingInterpolationArgument => er
+          render :nothing => true, :json => {error: er.to_s}
         rescue Exception => e
-          debugger
-          render :nothing => true, :json => {error: "#{::I18n.t("lolita-i18n.Error")}"}
+          render :nothing => true, :json => {error: "Key is not saved. Some error accured." }
         end
       end
     end
@@ -46,7 +36,7 @@ class Lolita::I18nController < ApplicationController
   private
   
   def lolita_mapping
-    params[:action] == "translate_untranslated" ? Lolita.mappings[:i18n] : super 
+    Lolita.mappings[:i18n]
   end
 
   def next_locale

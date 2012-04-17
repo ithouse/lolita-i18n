@@ -5,13 +5,12 @@ lv:
   de: Vācu
   sv: Zviedru
   lt: Lietuviešu
+  ee: Igauņu
   lolita-i18n:
     title: "Statiskā satura tulkošana"
     choose-other-language: "Izvēlies citu valodu"
     "Successful update": "Atslēga saglabāta veiksmīgi"
-    Error: "Kļūda saglabājot atslēgu"
     show-untranslated: "Rādīt tikai neiztulkotos"
   lolita:
     navigation:
       system: "Sistēma"
-    remove-old: "Noņemt vecos tulkojumus"

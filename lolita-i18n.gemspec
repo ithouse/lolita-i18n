@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<hiredis>, ["~> 0.3.1"])
   s.add_runtime_dependency(%q<redis>, ["~> 2.2.2"])
   s.add_runtime_dependency(%q<yajl-ruby>,["~> 1.0.0"])
+  s.add_runtime_dependency(%q<unicode_utils>,["~> 1.3.0"])
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

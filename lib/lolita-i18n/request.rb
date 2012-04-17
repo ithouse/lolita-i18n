@@ -1,4 +1,5 @@
 require "json"
+require "unicode_utils/upcase"
 
 module Lolita
   module I18n
@@ -117,7 +118,7 @@ module Lolita
           hash.each_pair do |key,value|
             current_key = [prev_key, key].compact.join(".").to_sym
             if final_value?(value)
-              yield current_key, translation_value(current_key,value,locale), value
+              yield current_key, translation_value(current_key,value,locale), original_translation_value(current_key,value)
             else
               flatten_keys(value,locale,current_key, &block)
             end
@@ -126,14 +127,34 @@ module Lolita
 
         def final_value?(value)
           !value.is_a?(Hash) || 
-          (value.is_a?(Hash) && value.keys.include?(:other) && value.keys.size > 1 && !value.values.detect{|value| value.is_a?(Array) || value.is_a?(Hash)}) 
+          (value.is_a?(Hash) && value.keys.map(&:to_sym).include?(:other) && value.keys.size > 1 && !value.values.detect{|value| value.is_a?(Array) || value.is_a?(Hash)}) 
         end
 
         def translation_value key, value, locale
-          translation_value = ::I18n.t(key,:locale => locale, :default => "")
+          translation_value = ::I18n.t(key,:locale => locale, :default => default_value_from(value))
           translation_value = {} if value.is_a?(Hash) && !translation_value.is_a?(Hash)
           translation_value = [] if value.is_a?(Array) && !translation_value.is_a?(Array)
           translation_value
+        end
+
+        private
+
+        def original_translation_value(key,value)
+          options = {:locale => ::I18n.default_locale}
+          if value.is_a?(Hash) # workaround for I18n::Chain, this allow to load Hash from translations.
+            options = options.merge(:count => nil)
+          end
+          ::I18n.t(key, options)
+        end
+
+        def default_value_from value
+          if value.is_a?(Array)
+            []
+          elsif value.is_a?(Hash)
+            {}
+          else
+            ""
+          end
         end
       end
 
@@ -147,6 +168,22 @@ module Lolita
         Lolita.i18n.load_translations
         translations = Translations.new(Lolita.i18n.yaml_backend.send(:translations)[::I18n.default_locale]) 
         translations.normalized(locale)
+      end
+
+      def sort_translations(unsorted_translations)
+        unsorted_translations.sort do |pair_a,pair_b|
+          value_a,value_b = pair_a[1][:original_translation],pair_b[1][:original_translation]
+          
+          if (value_a.is_a?(Hash) || value_a.is_a?(Array)) && [Array,Hash].include?(value_b.class)
+            0
+          elsif (value_a.is_a?(Hash) || value_a.is_a?(Array)) && ![Array,Hash].include?(value_b.class)
+            -1
+          elsif (value_b.is_a?(Hash) || value_b.is_a?(Array)) && ![Array,Hash].include?(value_a.class)
+            1
+          else
+            UnicodeUtils.upcase(value_a.to_s) <=> UnicodeUtils.upcase(value_b.to_s)
+          end
+        end
       end
 
       def update_key
@@ -166,7 +203,7 @@ module Lolita
       def set(key,translation)
         translation = Translation.new(key,translation)
         if translation.value.blank?
-          self.delete_key(key)
+          self.del(key)
         else
           validator.validate(key,translation.value)
           !!Lolita.i18n.backend.store_translations(*translation.for_store)

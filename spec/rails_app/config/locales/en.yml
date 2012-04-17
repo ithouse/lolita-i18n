@@ -1,10 +1,10 @@
 en:
-  "Page title": "Page title"
-  posts:
-    "Title": Posts
-    "Description": "Posts description"
-  comments:
-    "Title": Comments
-    "Description": "Comment description"
-  Footer: "Footer text"
-  copyright: "Copyright %{year_from}-%{year_till}"
+  zzzz: "zzzz"
+  title: "Title"
+  untranslated_title: ""
+  resource:
+    one: "One"
+    other: "Other"
+  numbers:
+    - "one"
+    - "two"

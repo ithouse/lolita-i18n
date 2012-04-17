@@ -1,5 +1,6 @@
 # rcov generated
 coverage
+coverage.data
 
 # rdoc generated
 rdoc
@@ -19,3 +20,6 @@ spec/rails_app/log/*.log
 .idea
 
 .rvmrc
+tmp
+.sass-cache
+.rspec
