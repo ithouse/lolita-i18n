@@ -40,17 +40,19 @@ $(function(){
       var key = $td.data("key")
       var locale = $td.data("locale")
       var $textareas = $("td[data-key='"+key+"'] textarea");
-      var result_arr = []
-      var result_json = {}
       var result_str = ""
+      var result_arr = false
+      var result_json = false
 
       if($textareas.length > 1){
         $textareas.each(function(index){
           var current_key = locale + "." + $(this).attr("name")
           var m_data = current_key.match(/\[(\d+)\]$/)
           if(m_data){
+            result_arr = result_arr || []
             result_arr[parseInt(m_data[m_data.length-1])] = $(this).val()
           }else{
+            result_json = result_json || {}
             keys = current_key.split(".")
             json_key = keys[keys.length-1]
             result_json[json_key] = $(this).val()
@@ -60,10 +62,8 @@ $(function(){
         result_str = $textareas.eq(0).val()
       }
       
-
-      that = this
       new_id = Base64.encode(key)
-      save(result_str.length > 0 ? result_str : (result_arr.length > 0 ? result_arr : result_json), new_id)
+      save(result_arr || result_json || result_str, new_id)
     }
     reset_size($(this))
   })
