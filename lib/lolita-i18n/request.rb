@@ -173,12 +173,12 @@ module Lolita
       def sort_translations(unsorted_translations)
         unsorted_translations.sort do |pair_a,pair_b|
           value_a,value_b = pair_a[1][:original_translation],pair_b[1][:original_translation]
-          
-          if (value_a.is_a?(Hash) || value_a.is_a?(Array)) && [Array,Hash].include?(value_b.class)
+
+          if both_values_complex?(value_a, value_b)
             0
-          elsif (value_a.is_a?(Hash) || value_a.is_a?(Array)) && ![Array,Hash].include?(value_b.class)
+          elsif complex_value?(value_a,value_b)
             -1
-          elsif (value_b.is_a?(Hash) || value_b.is_a?(Array)) && ![Array,Hash].include?(value_a.class)
+          elsif complex_value?(value_b,value_a)
             1
           else
             UnicodeUtils.upcase(value_a.to_s) <=> UnicodeUtils.upcase(value_b.to_s)
@@ -199,6 +199,14 @@ module Lolita
       end
 
       private 
+
+      def both_values_complex?(value_a, value_b)
+        (value_a.is_a?(Hash) || value_a.is_a?(Array)) && [Array,Hash].include?(value_b.class)
+      end
+
+      def complex_value?(value_a, value_b)
+        (value_a.is_a?(Hash) || value_a.is_a?(Array)) && ![Array,Hash].include?(value_b.class)
+      end
       
       def set(key,translation)
         translation = Translation.new(key,translation)
