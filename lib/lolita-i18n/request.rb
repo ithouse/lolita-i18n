@@ -72,11 +72,7 @@ module Lolita
         end
 
         def value
-          possible_value = Yajl::Parser.parse(@translation.to_json)
-          if original.is_a?(Array) && original.first.is_a?(Symbol)
-            possible_value.map(&:to_sym)
-          end
-          possible_value
+          Yajl::Parser.parse(@translation.to_json)
         end
 
         def locale
