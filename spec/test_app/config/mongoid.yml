@@ -1,5 +1,5 @@
 development:
-  database: lolita_i18n_test
+  database: lolita_translation_test
   host: localhost
   allow_dynamic_fields: false
   persist_in_safe_mode: false

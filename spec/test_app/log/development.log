@@ -1,0 +1,734 @@
+# Logfile created on 2012-07-17 14:58:55 +0300 by logger.rb/31641
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.haml within layouts/lolita/application (0.6ms)
+Completed 200 OK in 143ms (Views: 40.9ms)
+Processing by Lolita::I18nController#index as HTML
+Completed 200 OK in 148ms (Views: 7.4ms)
+Processing by Lolita::I18nController#index as HTML
+Completed 200 OK in 9ms (Views: 6.4ms)
+Processing by Lolita::I18nController#index as HTML
+Completed 200 OK in 8ms (Views: 6.4ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"translation", "id"=>"key"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 1ms (Views: 0.1ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 1ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:07 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (1.3ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (1.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (5.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (7.0ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (9.5ms)
+Completed 200 OK in 218ms (Views: 154.4ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:07 +0300
+Compiled lolita/jquery-ui-1.8.16.lolita.css  (13ms)  (pid 23377)
+Compiled lolita/default.css  (4ms)  (pid 23377)
+Compiled lolita/style.css  (15ms)  (pid 23377)
+Compiled lolita/application.css  (57ms)  (pid 23377)
+Served asset /lolita/application.css - 200 OK (124ms)
+
+
+Started GET "/assets/lolita/favicon.ico" for 127.0.0.1 at 2012-07-17 14:59:07 +0300
+Served asset /lolita/favicon.ico - 200 OK (5ms)
+
+
+Started GET "/assets/lolita/i18n/application.css" for 127.0.0.1 at 2012-07-17 14:59:07 +0300
+Served asset /lolita/i18n/application.css - 200 OK (19ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:07 +0300
+Compiled jquery.js  (1ms)  (pid 23377)
+Compiled jquery_ujs.js  (0ms)  (pid 23377)
+Compiled tinymce/preinit.js  (0ms)  (pid 23377)
+Compiled tinymce/tiny_mce_jquery_src.js  (3ms)  (pid 23377)
+Compiled tinymce/jquery.tinymce.js  (0ms)  (pid 23377)
+Compiled tinymce-jquery.js  (54ms)  (pid 23377)
+Compiled modernizr_1_7_min.js  (0ms)  (pid 23377)
+Compiled tinymce_config.js  (0ms)  (pid 23377)
+Compiled jquery-numeric.js  (0ms)  (pid 23377)
+Compiled application_vendor_lolita.js  (104ms)  (pid 23377)
+Compiled lolita/base64.js  (0ms)  (pid 23377)
+Compiled lolita/list.js  (0ms)  (pid 23377)
+Compiled lolita/main.js  (1ms)  (pid 23377)
+Compiled jquery-ui.js  (2ms)  (pid 23377)
+Compiled lolita/tab.js  (41ms)  (pid 23377)
+Compiled lolita/application.js  (184ms)  (pid 23377)
+Served asset /lolita/application.js - 200 OK (228ms)
+
+
+Started GET "/assets/lolita/i18n/application.js" for 127.0.0.1 at 2012-07-17 14:59:07 +0300
+Compiled lolita/i18n/application.js  (34ms)  (pid 23377)
+Served asset /lolita/i18n/application.js - 200 OK (74ms)
+
+
+Started PUT "/lolita/i18n/ZW4udW50cmFuc2xhdGVkX3RpdGxl" for 127.0.0.1 at 2012-07-17 14:59:09 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"translation for en.untranslated_title", "id"=>"ZW4udW50cmFuc2xhdGVkX3RpdGxl"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 14:59:09 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.1ms)
+Completed 200 OK in 183ms (Views: 126.2ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:10 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (4.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (5.8ms)
+Completed 200 OK in 205ms (Views: 133.4ms)
+
+
+Started PUT "/lolita/i18n/ZW4ucmVzb3VyY2U=" for 127.0.0.1 at 2012-07-17 14:59:11 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>{"one"=>"translation for en.resource.one", "other"=>"Other"}, "id"=>"ZW4ucmVzb3VyY2U="}
+Completed 200 OK in 3ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 14:59:11 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.2ms)
+Completed 200 OK in 186ms (Views: 123.8ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:12 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.4ms)
+Completed 200 OK in 201ms (Views: 133.7ms)
+
+
+Started PUT "/lolita/i18n/ZW4ubnVtYmVycw==" for 127.0.0.1 at 2012-07-17 14:59:13 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>["translation for en.numbers[0]", "two"], "id"=>"ZW4ubnVtYmVycw=="}
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 14:59:14 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.0ms)
+Completed 200 OK in 187ms (Views: 126.3ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:15 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.0ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.6ms)
+Completed 200 OK in 208ms (Views: 135.2ms)
+
+
+Started PUT "/lolita/i18n/bHYudW50cmFuc2xhdGVkX3RpdGxl" for 127.0.0.1 at 2012-07-17 14:59:16 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"translation for lv.untranslated_title", "id"=>"bHYudW50cmFuc2xhdGVkX3RpdGxl"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 14:59:16 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.2ms)
+Completed 200 OK in 183ms (Views: 124.4ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:16 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:16 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:17 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.2ms)
+Completed 200 OK in 205ms (Views: 147.8ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:17 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:17 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started PUT "/lolita/i18n/bHYucmVzb3VyY2U=" for 127.0.0.1 at 2012-07-17 14:59:19 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>{"one"=>"translation for lv.resource.one", "other"=>""}, "id"=>"bHYucmVzb3VyY2U="}
+Completed 200 OK in 3ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 14:59:19 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (5.1ms)
+Completed 200 OK in 190ms (Views: 124.8ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:19 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:19 +0300
+Served asset /lolita/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:20 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.6ms)
+Completed 200 OK in 224ms (Views: 135.9ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:20 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:20 +0300
+Served asset /lolita/application.js - 304 Not Modified (1ms)
+
+
+Started PUT "/lolita/i18n/bHYubnVtYmVycw==" for 127.0.0.1 at 2012-07-17 14:59:21 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>["translation for lv.numbers[0]", ""], "id"=>"bHYubnVtYmVycw=="}
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 14:59:22 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.4ms)
+Completed 200 OK in 224ms (Views: 139.4ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:22 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:22 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:23 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.6ms)
+Completed 200 OK in 202ms (Views: 129.2ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:23 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:23 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:24 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.3ms)
+Completed 200 OK in 191ms (Views: 133.6ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:24 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:24 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n?active_locale=ru" for 127.0.0.1 at 2012-07-17 14:59:25 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"active_locale"=>"ru"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.0ms)
+Completed 200 OK in 191ms (Views: 96.6ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:25 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:25 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:26 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.2ms)
+Completed 200 OK in 202ms (Views: 103.1ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:26 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:26 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 14:59:33 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.3ms)
+Completed 200 OK in 200ms (Views: 115.4ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:33 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:33 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 14:59:42 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.5ms)
+Completed 200 OK in 247ms (Views: 140.3ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:43 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:43 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n?sort=1" for 127.0.0.1 at 2012-07-17 14:59:44 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"sort"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (1.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (5.3ms)
+Completed 200 OK in 250ms (Views: 101.7ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 14:59:44 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 14:59:44 +0300
+Served asset /lolita/application.js - 304 Not Modified (0ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (48ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/a_work/ruby_docs/lolita-i18n/app/views/lolita/i18n/index.html.haml within layouts/lolita/application (0.6ms)
+Completed 200 OK in 97ms (Views: 37.0ms)
+Processing by Lolita::I18nController#index as HTML
+Completed 200 OK in 183ms (Views: 7.7ms)
+Processing by Lolita::I18nController#index as HTML
+Completed 200 OK in 10ms (Views: 7.7ms)
+Processing by Lolita::I18nController#index as HTML
+Completed 200 OK in 10ms (Views: 8.2ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"translation", "id"=>"key"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 2ms (Views: 0.1ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 1ms (Views: 0.1ms)
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"Tulkots virsraksts", "id"=>"bHYudGl0bGU=\n"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:14 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (1.3ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (1.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (6.3ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (7.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (10.4ms)
+Completed 200 OK in 245ms (Views: 154.6ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 15:03:15 +0300
+Served asset /lolita/application.css - 200 OK (51ms)
+
+
+Started GET "/assets/lolita/i18n/application.css" for 127.0.0.1 at 2012-07-17 15:03:15 +0300
+Served asset /lolita/i18n/application.css - 200 OK (17ms)
+
+
+Started GET "/assets/lolita/i18n/application.js" for 127.0.0.1 at 2012-07-17 15:03:15 +0300
+Served asset /lolita/i18n/application.js - 200 OK (84ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 15:03:15 +0300
+Served asset /lolita/application.js - 200 OK (52ms)
+
+
+Started GET "/assets/lolita/favicon.ico" for 127.0.0.1 at 2012-07-17 15:03:15 +0300
+Served asset /lolita/favicon.ico - 200 OK (5ms)
+
+
+Started PUT "/lolita/i18n/ZW4udW50cmFuc2xhdGVkX3RpdGxl" for 127.0.0.1 at 2012-07-17 15:03:16 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"translation for en.untranslated_title", "id"=>"ZW4udW50cmFuc2xhdGVkX3RpdGxl"}
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 15:03:16 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.4ms)
+Completed 200 OK in 180ms (Views: 94.7ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:17 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.4ms)
+Completed 200 OK in 250ms (Views: 140.6ms)
+
+
+Started PUT "/lolita/i18n/ZW4ucmVzb3VyY2U=" for 127.0.0.1 at 2012-07-17 15:03:18 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>{"one"=>"translation for en.resource.one", "other"=>"Other"}, "id"=>"ZW4ucmVzb3VyY2U="}
+Completed 200 OK in 3ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 15:03:19 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (31.2ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.1ms)
+Completed 200 OK in 187ms (Views: 123.3ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:19 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (3.9ms)
+Completed 200 OK in 193ms (Views: 132.2ms)
+
+
+Started PUT "/lolita/i18n/ZW4ubnVtYmVycw==" for 127.0.0.1 at 2012-07-17 15:03:21 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>["translation for en.numbers[0]", "two"], "id"=>"ZW4ubnVtYmVycw=="}
+Completed 200 OK in 2ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 15:03:21 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (5.1ms)
+Completed 200 OK in 191ms (Views: 127.1ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:22 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (1.3ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (8.0ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (10.3ms)
+Completed 200 OK in 205ms (Views: 139.9ms)
+
+
+Started PUT "/lolita/i18n/bHYudW50cmFuc2xhdGVkX3RpdGxl" for 127.0.0.1 at 2012-07-17 15:03:23 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>"translation for lv.untranslated_title", "id"=>"bHYudW50cmFuc2xhdGVkX3RpdGxl"}
+Completed 200 OK in 3ms (Views: 0.6ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 15:03:23 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.1ms)
+Completed 200 OK in 177ms (Views: 90.5ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:24 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.6ms)
+Completed 200 OK in 200ms (Views: 101.9ms)
+
+
+Started PUT "/lolita/i18n/bHYucmVzb3VyY2U=" for 127.0.0.1 at 2012-07-17 15:03:26 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>{"one"=>"translation for lv.resource.one", "other"=>""}, "id"=>"bHYucmVzb3VyY2U="}
+Completed 200 OK in 3ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 15:03:26 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.1ms)
+Completed 200 OK in 158ms (Views: 94.3ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:27 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (3.9ms)
+Completed 200 OK in 195ms (Views: 132.5ms)
+
+
+Started PUT "/lolita/i18n/bHYubnVtYmVycw==" for 127.0.0.1 at 2012-07-17 15:03:28 +0300
+Processing by Lolita::I18nController#update as JSON
+  Parameters: {"translation"=>["translation for lv.numbers[0]", ""], "id"=>"bHYubnVtYmVycw=="}
+Completed 200 OK in 4ms (Views: 0.2ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 15:03:28 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.1ms)
+Completed 200 OK in 190ms (Views: 124.3ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:29 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.3ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (5.0ms)
+Completed 200 OK in 254ms (Views: 157.6ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:31 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.2ms)
+Completed 200 OK in 185ms (Views: 130.6ms)
+
+
+Started GET "/lolita/i18n?active_locale=ru" for 127.0.0.1 at 2012-07-17 15:03:32 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"active_locale"=>"ru"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.9ms)
+Completed 200 OK in 236ms (Views: 102.1ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:33 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.1ms)
+Completed 200 OK in 197ms (Views: 129.8ms)
+
+
+Started GET "/lolita/i18n?show_untranslated=1" for 127.0.0.1 at 2012-07-17 15:03:39 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"show_untranslated"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (2.0ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.6ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (3.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.9ms)
+Completed 200 OK in 262ms (Views: 97.3ms)
+
+
+Started GET "/lolita/i18n" for 127.0.0.1 at 2012-07-17 15:03:48 +0300
+Processing by Lolita::I18nController#index as HTML
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.8ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.5ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (3.9ms)
+Completed 200 OK in 197ms (Views: 97.7ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 15:03:49 +0300
+Served asset /lolita/application.js - 304 Not Modified (36ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 15:03:49 +0300
+Served asset /lolita/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/lolita/i18n?sort=1" for 127.0.0.1 at 2012-07-17 15:03:50 +0300
+Processing by Lolita::I18nController#index as HTML
+  Parameters: {"sort"=>"1"}
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_flash.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_languages.html.haml (0.1ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/shared/_header.html.haml (1.7ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (0.4ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_tree.html.haml (2.9ms)
+  Rendered /home/kungs/.rvm/gems/ruby-1.9.3-p194@lolita-i18n/gems/lolita-3.2.0.rc.9/app/views/components/lolita/navigation/_display.html.haml (4.3ms)
+Completed 200 OK in 287ms (Views: 130.3ms)
+
+
+Started GET "/assets/lolita/application.css" for 127.0.0.1 at 2012-07-17 15:03:50 +0300
+Served asset /lolita/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/lolita/application.js" for 127.0.0.1 at 2012-07-17 15:03:50 +0300
+Served asset /lolita/application.js - 304 Not Modified (4ms)

@@ -71,6 +71,7 @@ describe Lolita::I18n::Request do
     end
 
     it "should return parsed value" do 
+      I18n.stub(:t).and_return("original_value")
       t = klass.new("key","value")
       t.value.should eq("value")
     end
@@ -233,13 +234,5 @@ describe Lolita::I18n::Request do
     r.validator.should be_a_kind_of(Lolita::I18n::Request::Validator)
   end
 
-  it "should delete key" do 
-    r = request_klass.new({:translation => "", :id => Base64.encode64("ru.key")})
-    store = double("store")
-    Lolita.i18n.stub(:store => store)
-    store.should_receive(:del).with("ru.key").twice
-    r.del "ru.key"
-    r.update_key
-  end
-
+ 
 end

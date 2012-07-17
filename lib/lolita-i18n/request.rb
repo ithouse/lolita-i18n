@@ -72,7 +72,11 @@ module Lolita
         end
 
         def value
-          Yajl::Parser.parse(@translation.to_json)
+          possible_value = Yajl::Parser.parse(@translation.to_json)
+          if original.is_a?(Array) && original.first.is_a?(Symbol)
+            possible_value.map(&:to_sym)
+          end
+          possible_value
         end
 
         def locale
@@ -208,14 +212,10 @@ module Lolita
         (value_a.is_a?(Hash) || value_a.is_a?(Array)) && ![Array,Hash].include?(value_b.class)
       end
       
-      def set(key,translation)
-        translation = Translation.new(key,translation)
-        if translation.value.blank?
-          self.del(key)
-        else
-          validator.validate(key,translation.value)
-          !!Lolita.i18n.backend.store_translations(*translation.for_store)
-        end
+      def set(key,value)
+        translation = Translation.new(key,value)
+        validator.validate(key,translation.value)
+        !!Lolita.i18n.backend.store_translations(*translation.for_store)
       end
 
     end
