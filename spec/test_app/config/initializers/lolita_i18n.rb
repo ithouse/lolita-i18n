@@ -1,4 +1,4 @@
 
 Lolita.setup do |config|
-  config.i18n.store = Redis.new({:db => 0})
+   	config.i18n.create_configuration('SQL')
 end

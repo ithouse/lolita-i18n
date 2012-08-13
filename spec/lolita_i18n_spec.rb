@@ -29,9 +29,9 @@ describe Lolita::I18n do
       Lolita.configuration.should respond_to(:i18n)
     end
 
-    it "should have Request,Configuration,Exceptions constants in module" do 
-      Lolita::I18n::Request.should be_kind_of(Class)
-      Lolita::I18n::Configuration.should be_kind_of(Class)
+    it "should have Request,Redis_Configuration,Exceptions constants in module" do 
+      Lolita::I18n::Abstract_Configuration.should be_kind_of(Class)
+      Lolita::I18n::Abstract_Store.should be_kind_of(Class)
       Lolita::I18n::Exceptions.should be_kind_of(Module)
     end
   end

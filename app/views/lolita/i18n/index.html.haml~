@@ -1,0 +1,42 @@
+- content_for :style do
+ %h1
+  TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
+  = stylesheet_link_tag "lolita/i18n/application", :media => "screen,projection"
+- content_for :script do
+  = javascript_include_tag "lolita/i18n/application"
+.box.i18n-box
+  .boxtitle
+    %h1.black= ::I18n.t('lolita-i18n.title', :default => ::I18n.t('lolita-i18n.title'))
+    .arrow
+  .list
+    %div.actions
+      .filters
+        = check_box_tag "show_untranslated", nil, params[:show_untranslated]
+        = label_tag "show_untranslated", ::I18n.t('lolita-i18n.show-untranslated', :default => ::I18n.t('lolita-i18n.show-untranslated'))
+    %table
+      %thead
+        %tr
+          %th{:style => "width:450px"}
+            - if locale_options.size > 1
+              = select_tag :active_locale, options_for_select(locale_options,@active_locale.to_sym), :id => "active_locale"
+          %th{:style => "width:90%"}= raw(sort_link)
+      %tbody
+        - active_locale = @active_locale
+        - @translations.each do |key,value|
+          - if @active_locale && any_translation_visible?(value[:translation])
+            %tr
+              - if value[:original_translation].is_a?(Hash) || value[:original_translation].is_a?(Array)
+                %td.grouped{:colspan => "2"}
+                  %table
+                    - if value[:original_translation].is_a?(Hash)
+                      - value[:original_translation].each do |c_key,c_value|
+                        - if translation_visible?(value[:translation][c_key])
+                          %tr
+                            = raw(translation(@active_locale,"#{key}.#{c_key}",key,value[:translation][c_key],c_value))
+                    - else
+                      - value[:original_translation].each_with_index do |c_value,index|
+                        - if translation_visible?(value[:translation][index])
+                          %tr
+                            = raw(translation(@active_locale, "#{key}[#{index}]", key, value[:translation][index], c_value))
+              - else
+                = raw(translation(@active_locale, key, key, value[:translation], value[:original_translation]))

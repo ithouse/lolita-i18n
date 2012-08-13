@@ -12,5 +12,6 @@ group :test do
   gem "capybara", "~> 1.1.2"
   gem 'capybara-webkit', "~>0.11.0"
   gem "sass", "~>3.1.15"
+  gem 'sqlite3'
   
 end

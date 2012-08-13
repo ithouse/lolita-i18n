@@ -14,11 +14,13 @@ class Lolita::I18nController < ApplicationController
   end
 
   def update
+
     authorization_proxy.authorize!(:update, self.resource_class)
     respond_to do |format|
       format.json do
         begin
-          if saved = i18n_request.update_key 
+        
+          if saved = i18n_request.update_key(params)
             notice(::I18n.t("lolita-i18n.Successful update"))
           else
             error(::I18n.t("lolita-i18n.Error"))
@@ -51,7 +53,7 @@ class Lolita::I18nController < ApplicationController
   end
 
   def i18n_request
-    @i18n_request ||= Lolita::I18n::Request.new(params)
+    @i18n_request ||= Lolita.i18n.create_store
   end
 
 end
