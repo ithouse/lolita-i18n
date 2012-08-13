@@ -9,9 +9,9 @@ module Lolita
   # All translations ar stored with full key like "en.home.index.title" -> Hello world.
 
   # In your lolita initializer add this line in setup block.
-  #   config.i18n.store = {redis_confguration_goes_here}
+  #   config.i18n.create_configuration('Redis')
   #   # or
-  #   config.i18n.store = Redis.new() # default store 
+  #   config.i18n.create_configuration('SQL')
   module I18n
     autoload :SQL_Configuration, 'lolita-i18n/Configuration/SQL_Configuration'
     autoload :Redis_Configuration, 'lolita-i18n/Configuration/Redis_Configuration'

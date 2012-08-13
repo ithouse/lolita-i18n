@@ -7,7 +7,7 @@ Lolita I18n is Lolita[https://github.com/ithouse/lolita] plugin, that enables .y
 * setup rails >3.1 project with ["Lolita"](https://github.com/ithouse/lolita)
 * setup [Redis DB](http://redis.io) on your server
 * add `gem 'lolita-i18n'` into Gemfile
-* in your lolita setup block add  `config.i18n.store = {:db => REDIS_DB}` or `config.i18n.store = Redis.new`
+* in your lolita setup block add  `config.i18n.create_configuration('SQL')` or `config.i18n.create_configuration('Redis')`
 * add `REDIS_DB = your db number` in your environment files. 
 * open `/lolita/i18n` and start translating
 
