@@ -1,11 +1,10 @@
 require "json"
 require "unicode_utils/upcase"
-require_relative "../Configuration"
-require_relative "../Store/Redis_Store"
+require_relative "../configuration"
+require_relative "../store/redis_store"
 
 module Lolita
-  module I18n
-    
+  module I18n  
     class Redis_Configuration < Abstract_Configuration
 
       def new
@@ -32,16 +31,9 @@ module Lolita
 
       def Create_redis_store
         @redis_store = Lolita::I18n::Redis_Store.new()
-       return @redis_store
+        return @redis_store
       end
 
     end
-
-   
-
-
   end
-
-
-
 end

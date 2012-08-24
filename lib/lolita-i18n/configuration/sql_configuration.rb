@@ -1,17 +1,17 @@
 require "json"
 require "unicode_utils/upcase"
-require_relative "../Configuration"
-require_relative "../Store/SQL_Store"
-require_relative "../Store/SQL_Migrations"
+require_relative "../configuration"
+require_relative "../store/sql_store"
+require_relative "../store/sql_migrations"
 
 module Lolita
   module I18n
-
     class SQL_Configuration < Abstract_Configuration
+      
       @store
 
       def new
-        #Store::SQL_Migrations.create_table
+        Store::SQL_Migrations.create_table
         self.store = Lolita::I18n::SQL_Store.new()
       end
 
@@ -37,13 +37,6 @@ module Lolita
         @sql_store = Lolita::I18n::SQL_Store.new()
       end
 
-
     end
-
-
-
   end
-
-
-
 end

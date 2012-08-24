@@ -1,7 +1,9 @@
 $:<<File.dirname(__FILE__) unless $:.include?(File.dirname(__FILE__))
+
 require 'redis'
 require 'yajl'
 require 'lolita'
+require 'lolita-i18n'
 
 
 module Lolita
@@ -9,15 +11,15 @@ module Lolita
   # All translations ar stored with full key like "en.home.index.title" -> Hello world.
 
   # In your lolita initializer add this line in setup block.
-  #   config.i18n.create_configuration('Redis')
+  #   config.i18n.store = {redis_confguration_goes_here}
   #   # or
-  #   config.i18n.create_configuration('SQL')
+  #   config.i18n.store = Redis.new() # default store 
   module I18n
-    autoload :SQL_Configuration, 'lolita-i18n/Configuration/SQL_Configuration'
-    autoload :Redis_Configuration, 'lolita-i18n/Configuration/Redis_Configuration'
+    autoload :SQL_Configuration, 'lolita-i18n/configuration/sql_configuration'
+    autoload :Redis_Configuration, 'lolita-i18n/configuration/redis_configuration'
     autoload :ActiveRecord, 'lolita-i18n/active_record'
     autoload :Exceptions, 'lolita-i18n/exceptions'
-    autoload :Abstract_Configuration, 'lolita-i18n/Configuration'
+    autoload :Abstract_Configuration, 'lolita-i18n/configuration'
 
   end
 end

@@ -1,9 +1,9 @@
 require 'rubygems'
 require 'bundler'
 require 'cover_me'
-require_relative "../lib/lolita-i18n/Configuration/Redis_Configuration"
-require_relative "../lib/lolita-i18n/Configuration/SQL_Configuration"
-require_relative "lolita-i18n/Store/shared_examples_for_Store"
+require_relative "../lib/lolita-i18n/configuration/redis_configuration"
+require_relative "../lib/lolita-i18n/configuration/sql_configuration"
+require_relative "lolita-i18n/store/shared_examples_for_store"
 
 CoverMe.config do |c|
     # where is your project's root:
@@ -18,9 +18,12 @@ end
 
 REQUIRE_RAILS = true # turn of to run lolita-i18n tests fast
 
- ActiveRecord::Base.establish_connection(:adapter => "sqlite3", 
-                                        :database => File.dirname(__FILE__) + "/database_name.sqlite3")
 
+ActiveRecord::Base.establish_connection(  :adapter => "mysql2",
+                                          :database => "lolita_demo_ar_development",
+                                          :username => "root", 
+                                          :password => "12345678"
+                                        )
 
 begin
   Bundler.setup(:default, :test)

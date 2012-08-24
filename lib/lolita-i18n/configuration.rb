@@ -57,11 +57,7 @@ module Lolita
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Metadata)
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::InterpolationCompiler)
       end
-    end
-
     
+    end
   end
-
-
-
 end

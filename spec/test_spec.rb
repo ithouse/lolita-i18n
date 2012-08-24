@@ -1,4 +1,4 @@
-require_relative '../test'
+require 'test'
 
 describe Configur do 
   describe "#new" do 
