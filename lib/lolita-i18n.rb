@@ -7,13 +7,12 @@ require 'lolita-i18n'
 
 
 module Lolita
-  # === Uses Redis DB as backend
-  # All translations ar stored with full key like "en.home.index.title" -> Hello world.
+    # All translations ar stored with full key like "en.home.index.title" -> Hello world.
 
   # In your lolita initializer add this line in setup block.
-  #   config.i18n.store = {redis_confguration_goes_here}
+  #   config.i18n.create_configuration('SQL')
   #   # or
-  #   config.i18n.store = Redis.new() # default store 
+  #   config.i18n.create_configuration('Redis')
   module I18n
     autoload :SQL_Configuration, 'lolita-i18n/configuration/sql_configuration'
     autoload :Redis_Configuration, 'lolita-i18n/configuration/redis_configuration'
