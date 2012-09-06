@@ -26,4 +26,4 @@ tmp
 pkg
 spec/test_app/coverage.data
 spec/test_app/coverage
-spec/tst_app/log
+spec/test_app/log
