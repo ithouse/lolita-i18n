@@ -73,12 +73,6 @@ describe Lolita::I18n::Configuration do
   end
   
   describe "#reconnect" do
-    it "should reconnect" do
-      subject.should_receive(:initialize_chain).twice
-      subject.reconnect
-      subject.reconnect
-    end
-
     it "should call init if not initialized jet" do
       subject.should_receive(:init).once
       subject.reconnect
@@ -101,13 +95,27 @@ describe Lolita::I18n::Configuration do
     end
 
     it "should initialize chain" do
-      chain = double("chain")
-      subject.should_receive(:initialize_chain).and_return(chain)
-      redis = double("redis", :ping => true)
-      Redis.stub(:new).and_return(redis)
-      ::I18n.should_receive(:backend=).with(chain)
+      subject.should_receive(:initialize_chain).twice
       subject.reconnect
-      Redis.unstub(:new)
+      subject.reconnect
+    end
+
+    it "should disconnect" do
+      subject.should_receive(:disconnect)
+      subject.reconnect
+    end
+  end
+  
+  describe "#disconnect" do
+    it "should disconnect if connected" do
+      subject.store.client.should_receive(:disconnect)
+      subject.connect
+      subject.disconnect
+    end
+
+    it "should not disconnect if not connected"do
+      subject.store.client.should_not_receive(:disconnect)
+      subject.disconnect
     end
   end
 

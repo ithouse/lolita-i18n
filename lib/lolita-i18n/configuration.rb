@@ -62,6 +62,7 @@ module Lolita
         unless @initialized
           init
         else
+          disconnect
           @connected = begin
             connection = Redis.new
             connection.ping
@@ -70,10 +71,17 @@ module Lolita
           rescue Errno::ECONNREFUSED => e
             warn "Warning: Lolita was unable to connect to Redis DB: #{e}"
             false
-          end
+          end       
         end
       end
       
+      def disconnect
+        if @connected
+          store.client.disconnect
+          @connected = false
+        end
+      end
+
       def set_yaml_backend
         @yaml_backend ||= ::I18n.backend
       end
