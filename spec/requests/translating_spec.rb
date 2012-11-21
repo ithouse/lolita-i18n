@@ -1,17 +1,13 @@
 require 'spec_helper'
 
 describe "Translating process", :rails => true do 
-   def translate_key(key, options = {})
+   def translate_key(key)
     page.should have_selector("textarea[name='#{key}']")
     fill_in(key, :with => "translation for #{key}")
     page.execute_script(%Q{$("textarea[name='#{key}']").blur()})
-
+    page.execute_script(%Q{window.location.href='#'})
     page.check("show_untranslated")
-    if options[:original]
-      page.should have_selector("textarea[name='#{key}']", :text => "translation for #{key}")
-    else
-      page.should_not have_selector("textarea[name='#{key}']")
-    end
+    page.find_field(key).value.should == "translation for #{key}"
   end
 
   before(:each) do 
@@ -20,16 +16,16 @@ describe "Translating process", :rails => true do
 
   describe "Translating value for default language", :rails => true, :js => true, :redis => true do 
 
-    it "User can translate simple values" do 
-      translate_key("en.untranslated_title", :original => true)
+    it "User can translate simple values" do
+      translate_key("en.untranslated_title")
     end
 
     it "User can translate Hash values" do 
-      translate_key("en.resource.one", :original => true)
+      translate_key("en.resource.one")
     end
 
     it "User can translate Array values" do 
-      translate_key("en.numbers[0]", :original => true)
+      translate_key("en.numbers[0]")
     end
   end
 
