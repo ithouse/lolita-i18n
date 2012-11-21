@@ -35,12 +35,47 @@ module Lolita
 
       # Load translation from yaml.
       def load_translations
-        self.yaml_backend.load_translations
+        @yaml_backend.load_translations
       end
 
       # Create chain where new KeyValue backend is first and Yaml backend is second.
       def initialize_chain
         ::I18n::Backend::Chain.new(self.backend, self.yaml_backend)
+      end
+      
+      def init
+        unless @initialized
+          include_modules
+          set_yaml_backend
+          @initialized = true
+          connect
+        end
+      end
+
+      def connect
+        unless @connected
+          reconnect
+        end
+      end
+
+      def reconnect
+        unless @initialized
+          init
+        else
+          @connected = begin
+            connection = Redis.new
+            connection.ping
+            ::I18n.backend = initialize_chain
+            true
+          rescue Errno::ECONNREFUSED => e
+            warn "Warning: Lolita was unable to connect to Redis DB: #{e}"
+            false
+          end
+        end
+      end
+      
+      def set_yaml_backend
+        @yaml_backend ||= ::I18n.backend
       end
 
       # Add modules for SimpleBackend that is used for Yaml translations

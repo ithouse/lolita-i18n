@@ -28,16 +28,7 @@ end
 Lolita.configuration.extend(LolitaI18nConfiguration)
 
 Lolita.after_setup do
-  Lolita.i18n.yaml_backend = ::I18n.backend
-  Lolita.i18n.include_modules
-  begin
-    r = Redis.new
-    r.ping
-    ::I18n.backend = Lolita.i18n.initialize_chain
-  rescue Errno::ECONNREFUSED => e
-    warn "Warning: Lolita was unable to connect to Redis DB: #{e}"
-  end
-  true
+  Lolita.i18n.init
 end
 
 Lolita.i18n.load_rails!

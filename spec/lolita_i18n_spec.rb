@@ -2,26 +2,9 @@ require 'spec_helper'
 
 describe Lolita::I18n do 
   describe "loaded" do 
+    
     it "should check Redis connection after Lolita.setup" do 
-      Lolita.i18n.should_receive(:yaml_backend=).and_return(double())
-      Lolita.i18n.should_receive(:include_modules).and_return(true)
-      chain = double("chain")
-      Lolita.i18n.should_receive(:initialize_chain).and_return(chain)
-      redis = double("redis")
-      Redis.stub(:new).and_return(redis)
-      redis.stub(:ping => true)
-      ::I18n.should_receive(:backend=).with(chain)
-      
-      Lolita.setup{}
-    end
-
-    it "should warn when Redis is not available" do 
-      Lolita.i18n.should_receive(:yaml_backend=).and_return(double())
-      Lolita.i18n.should_receive(:include_modules).and_return(true)
-      redis = double("redis")
-      Redis.stub(:new).and_return(redis)
-      redis.stub(:ping).and_raise(Errno::ECONNREFUSED)
-      
+      Lolita.i18n.should_receive(:init)
       Lolita.setup{}
     end
 
