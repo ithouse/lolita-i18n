@@ -101,6 +101,7 @@ module Lolita
 
       class Translations
         def initialize(translations_hash)
+          translations_hash.delete(:'i18n')
           @translations = translations_hash
         end
 
