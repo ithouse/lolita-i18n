@@ -64,8 +64,8 @@ module Lolita
         else
           disconnect
           @connected = begin
-            connection = Redis.new
-            connection.ping
+            store.client.reconnect
+            store.ping
             ::I18n.backend = initialize_chain
             true
           rescue Errno::ECONNREFUSED => e
