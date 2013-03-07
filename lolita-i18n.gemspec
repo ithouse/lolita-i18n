@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
 
   s.add_runtime_dependency(%q<lolita>, ["~> 3.2.0.rc.9"])
+  s.add_runtime_dependency(%q<i18n>, ["= 0.6.0"])
   s.add_runtime_dependency(%q<hiredis>, ["~> 0.3.1"])
   s.add_runtime_dependency(%q<redis>, ["~> 2.2.2"])
   s.add_runtime_dependency(%q<yajl-ruby>,["~> 1.0.0"])
