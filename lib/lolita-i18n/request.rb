@@ -22,7 +22,7 @@ module Lolita
         def validate_array(key,values)
           translation = Translation.new(key,values)
           if translation.original.class != values.class || translation.original.size != values.size
-            raise Exceptions::TranslationDoesNotMatch.new(values,translation.original) 
+            raise Exceptions::TranslationDoesNotMatch.new(values,translation.original)
           end
           values.each_with_index do |value,index|
             validate_value(key,value,:index => index)
@@ -32,7 +32,7 @@ module Lolita
         def validate_hash(key,hash)
           translation = Translation.new(key,hash)
           if translation.original.class != hash.class || (hash.keys.map(&:to_sym) - translation.original.keys).any?
-            raise Exceptions::TranslationDoesNotMatch.new(hash,translation.original) 
+            raise Exceptions::TranslationDoesNotMatch.new(hash,translation.original)
           end
           hash.each do |hash_key,value|
             validate_value(key,value, :key => hash_key)
@@ -40,7 +40,7 @@ module Lolita
         end
 
         def validate_value(key,value, options = {})
-          value = value.to_s 
+          value = value.to_s
           original_value = current_value_for_original(key,value,options)
           unless interpolations(value) == interpolations(original_value)
             raise Exceptions::MissingInterpolationArgument.new(interpolations(original_value))
@@ -127,8 +127,8 @@ module Lolita
         end
 
         def final_value?(value)
-          !value.is_a?(Hash) || 
-          (value.is_a?(Hash) && value.keys.map(&:to_sym).include?(:other) && value.keys.size > 1 && !value.values.detect{|value| value.is_a?(Array) || value.is_a?(Hash)}) 
+          !value.is_a?(Hash) ||
+          (value.is_a?(Hash) && value.keys.map(&:to_sym).include?(:other) && value.keys.size > 1 && !value.values.detect{|value| value.is_a?(Array) || value.is_a?(Hash)})
         end
 
         def translation_value key, value, locale
@@ -167,7 +167,7 @@ module Lolita
 
       def translations locale
         Lolita.i18n.load_translations
-        translations = Translations.new(Lolita.i18n.yaml_backend.send(:translations)[::I18n.default_locale]) 
+        translations = Translations.new(Lolita.i18n.yaml_backend.send(:translations)[::I18n.default_locale])
         translations.normalized(locale)
       end
 
@@ -195,11 +195,7 @@ module Lolita
         @validator ||= Validator.new()
       end
 
-      def del key
-        Lolita.i18n.store.del key
-      end
-
-      private 
+      private
 
       def both_values_complex?(value_a, value_b)
         (value_a.is_a?(Hash) || value_a.is_a?(Array)) && [Array,Hash].include?(value_b.class)
@@ -208,7 +204,7 @@ module Lolita
       def complex_value?(value_a, value_b)
         (value_a.is_a?(Hash) || value_a.is_a?(Array)) && ![Array,Hash].include?(value_b.class)
       end
-      
+
       def set(key,value)
         translation = Translation.new(key,value)
         validator.validate(key,translation.value)

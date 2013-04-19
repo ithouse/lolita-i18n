@@ -8,7 +8,7 @@ module Lolita
         if Lolita.rails3?
           require 'lolita-i18n/rails'
         end
-      end 
+      end
       # Rerturn existing store or create new Redis connection without any arguments.
       def store
         unless @store
@@ -42,7 +42,7 @@ module Lolita
       def initialize_chain
         ::I18n::Backend::Chain.new(self.backend, self.yaml_backend)
       end
-      
+
       def init
         unless @initialized
           include_modules
@@ -71,10 +71,10 @@ module Lolita
           rescue Errno::ECONNREFUSED => e
             warn "Warning: Lolita was unable to connect to Redis DB: #{e}"
             false
-          end       
+          end
         end
       end
-      
+
       def disconnect
         if @connected
           store.client.disconnect

@@ -4,8 +4,8 @@ gemspec
 
 group :test do
   gem "debugger"
-  gem "rails", "~>3.2.2"
-  gem "cover_me", "~>1.2.0"
+  gem "rails", "~>3.2.13"
+  gem "simplecov", "~>0.7.1"
   gem "bson_ext", "~>1.6.2"
   gem "mongoid", "~>2.4.8"
   gem "rspec-rails", "~>2.11.0"

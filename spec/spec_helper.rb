@@ -1,16 +1,10 @@
 require 'rubygems'
 require 'bundler'
-require 'cover_me'
 
-CoverMe.config do |c|
-    # where is your project's root:
-    c.project.root = File.expand_path("../lolita-i18n") # => "Rails.root" (default)
-    
-    # what files are you interested in coverage for:
-    c.file_pattern =  [
-      /(#{CoverMe.config.project.root}\/app\/.+\.rb)/i,
-      /(#{CoverMe.config.project.root}\/lib\/.+\.rb)/i
-    ] 
+# run simplecov only wehen all tests are executed
+if ARGV.empty? || ARGV.include?("spec")
+  require 'simplecov'
+  SimpleCov.start 'rails'
 end
 
 REQUIRE_RAILS = true # turn of to run lolita-i18n tests fast
@@ -28,15 +22,11 @@ if REQUIRE_RAILS
   require 'rails_spec_helper'
 end
 require File.expand_path('lib/lolita-i18n')
-  
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.mock_with :rspec
-  config.before(:each,:redis) do
+  config.before(:each, :redis) do
     Lolita.i18n.store.flushdb
   end
-end
-
-at_exit do
-  CoverMe.complete! if 1==1
 end
