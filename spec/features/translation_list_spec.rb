@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Viewing all translations", :rails => true, :redis => true, :js => true do 
+describe "Viewing all translations", :redis => true, :js => true do 
   before(:each) do 
     visit "/lolita/i18n"
   end
