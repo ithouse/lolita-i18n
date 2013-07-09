@@ -90,7 +90,6 @@ module Lolita
       def include_modules
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Flatten)
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Pluralization)
-        ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Metadata)
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::InterpolationCompiler)
       end
     end

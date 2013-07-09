@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Translating process", :rails => true do 
+describe "Translating process" do 
    def translate_key(key)
     page.should have_selector("textarea[name='#{key}']")
     fill_in(key, :with => "translation for #{key}")

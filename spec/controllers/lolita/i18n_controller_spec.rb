@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lolita::I18nController, :rails => true do 
+describe Lolita::I18nController do 
   
   describe "GET index" do 
     it "should authorize resource" do

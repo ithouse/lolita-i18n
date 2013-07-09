@@ -141,7 +141,6 @@ describe Lolita::I18n::Configuration do
       subject.include_modules
       ::I18n::Backend::Simple.ancestors.should include(::I18n::Backend::Flatten)
       ::I18n::Backend::Simple.ancestors.should include(::I18n::Backend::Pluralization)
-      ::I18n::Backend::Simple.ancestors.should include(::I18n::Backend::Metadata)
       ::I18n::Backend::Simple.ancestors.should include(::I18n::Backend::InterpolationCompiler)
     end
   end
