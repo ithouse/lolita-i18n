@@ -5,8 +5,8 @@ describe Lolita::I18n::Configuration do
   let(:redis){ double("redis", :ping => true, client: double(disconnect: true, reconnect: true)) }
 
   it "should load rails if Rails is defined" do
-    allow(Lolita).to receive(:rails3?).and_return(true)
-    expect(subject).to receive(:require).with('lolita-i18n/rails')
+    Lolita.stub(:rails?).and_return(true)
+    subject.should_receive(:require).with('lolita-i18n/rails')
     subject.load_rails!
   end
 
