@@ -38,6 +38,16 @@ Add this to `unicorn.rb`
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
+## Registering URL's to understand from where translation comes
+
+In your conifg/evironments/xxx.rb add this:
+
+MyCool::Application.configure do
+  config.middleware.use Lolita::I18n::Recorder
+end
+
+After adding go manualy trough the whole site /urls. All translations will be registerd with linked url.
+
 ---
 
-Copyright (c) 2011 ITHouse (Latvia). See LICENSE.txt for further details.
+Copyright (c) 2014 ITHouse (Latvia). See LICENSE.txt for further details.
