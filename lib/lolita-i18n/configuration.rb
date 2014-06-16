@@ -2,7 +2,9 @@ module Lolita
   module I18n
     class Configuration
 
-      attr_accessor :yaml_backend
+      attr_accessor :yaml_backend,
+        :request_path_info
+      attr_reader :recording_request_path_info
 
       def load_rails!
         if Lolita.rails3?
@@ -30,7 +32,8 @@ module Lolita
 
       # Lazy create new KeyValue backend with current store.
       def backend
-        @backend ||= ::I18n::Backend::KeyValue.new(self.store)
+        @backend ||= KeyValueRecorder.new(self.store)
+        #@backend ||= ::I18n::Backend::KeyValue.new(self.store)
       end
 
       # Load translation from yaml.
@@ -91,6 +94,10 @@ module Lolita
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Flatten)
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::Pluralization)
         ::I18n::Backend::Simple.send(:include, ::I18n::Backend::InterpolationCompiler)
+      end
+
+      def set_recording_request_path_info
+        @recording_request_path_info = true
       end
     end
 

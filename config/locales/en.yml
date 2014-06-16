@@ -11,6 +11,7 @@ en:
     choose-other-language: "Choose other language"
     "Successful update": "Successful update"
     show-untranslated: "Show only untranslated"
+    show-with-url: "only with URL"
   lolita:
     navigation:
       system: "System"

@@ -167,17 +167,28 @@ describe Lolita::I18n::Request do
       result.should eq(valid_results)
     end 
 
-    it "should normalize for locale" do 
+    it "should normalize for locale" do
       t = klass.new(translations)
       valid_results = {
-        :arr => {:translation => [], :original_translation => [1,2]},
-        :str => {:translation => "-no-translation-", :original_translation => "string"},
-        :inter => {:translation => {}, :original_translation => {:one => "one", :other => "other"}},
-        :"hsh.key" => {:translation => "-no-translation-", :original_translation => "value"}
+        :arr => {:translation => [], :original_translation => [1,2], :url => nil},
+        :str => {:translation => "-no-translation-", :original_translation => "string", :url => nil},
+        :inter => {:translation => {}, :original_translation => {:one => "one", :other => "other"}, :url => nil},
+        :"hsh.key" => {:translation => "-no-translation-", :original_translation => "value", :url => nil}
       }
       t.normalized(:lv).should eq(valid_results)
     end
 
+    it "should normalize for locale end retur registerd URL" do
+      Redis.any_instance.stub(:[]).and_return '/kekss'
+      t = klass.new(translations)
+      valid_results = {
+        :arr => {:translation => [], :original_translation => [1,2], :url => '/kekss'},
+        :str => {:translation => "-no-translation-", :original_translation => "string", :url => '/kekss'},
+        :inter => {:translation => {}, :original_translation => {:one => "one", :other => "other"}, :url => '/kekss'},
+        :"hsh.key" => {:translation => "-no-translation-", :original_translation => "value", :url => '/kekss'}
+      }
+      t.normalized(:lv).should eq(valid_results)
+    end
   end
 
   let(:request_klass){Lolita::I18n::Request}

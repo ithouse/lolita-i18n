@@ -11,6 +11,7 @@ lv:
     choose-other-language: "Izvēlies citu valodu"
     "Successful update": "Atslēga saglabāta veiksmīgi"
     show-untranslated: "Rādīt tikai neiztulkotos"
+    show-with-url: "Tikai ar URL"
   lolita:
     navigation:
       system: "Sistēma"

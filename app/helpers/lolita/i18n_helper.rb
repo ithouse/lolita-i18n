@@ -7,7 +7,7 @@ module Lolita
       }
     end
 
-    def translation active_locale, key, original_key, translation, original 
+    def translation active_locale, key, original_key, translation, original, url = nil
       %Q{
         <td style="width:450px", data-key="#{active_locale}.#{original_key}" data-locale="#{active_locale}">
           <p>
@@ -18,22 +18,38 @@ module Lolita
           <p>
             #{text_area_tag "#{::I18n.default_locale}.#{key}", original}
           </p>
-          #{!key.blank? && "<span class='hint'>#{key}</span>"} 
+          #{!key.blank? ? "<span class='hint'>#{key}</span>" : ''}
+          #{url.present? ? "<span class='hint'>#{url}</span>" : ''}
         </td>
       }
     end
 
-    def translation_visible? value
-      !!(!params[:show_untranslated] || value.is_a?(Array) || value.is_a?(Hash) || (params[:show_untranslated] && value.blank?))
+    def is_untranslated? value
+      if value.is_a?(Array) || value.is_a?(Hash)
+        true
+      else
+        value.blank?
+      end
     end
 
-    def any_translation_visible? values
+    def translation_visible? value, url
+      result = true
+      if params[:show_untranslated]
+        result = result && is_untranslated?(value)
+      end
+      if params[:show_with_url]
+        result = result && url.present?
+      end
+      result
+    end
+
+    def any_translation_visible? values, url
       if values.is_a?(Array)
-        values.empty? || values.detect{|value| translation_visible?(value)}
+        values.empty? || values.detect{|value| translation_visible?(value, url)}
       elsif values.is_a?(Hash)
-        values.empty? || values.detect{|key,value| translation_visible?(value)}
+        values.empty? || values.detect{|key,value| translation_visible?(value, url)}
       else
-        translation_visible?(values)
+        translation_visible?(values, url)
       end
     end
 

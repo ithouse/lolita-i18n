@@ -13,6 +13,8 @@ module Lolita
   #   # or
   #   config.i18n.store = Redis.new() # default store 
   module I18n
+    autoload :Recorder, 'lolita-i18n/middleware/recorder'
+    autoload :KeyValueRecorder, 'lolita-i18n/key_value_recorder'
     autoload :Request, 'lolita-i18n/request'
     autoload :Exceptions, 'lolita-i18n/exceptions'
     autoload :Configuration, 'lolita-i18n/configuration'

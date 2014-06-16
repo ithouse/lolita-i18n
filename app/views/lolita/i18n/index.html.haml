@@ -11,6 +11,8 @@
       .filters
         = check_box_tag "show_untranslated", nil, params[:show_untranslated]
         = label_tag "show_untranslated", ::I18n.t('lolita-i18n.show-untranslated', :default => ::I18n.t('lolita-i18n.show-untranslated'))
+        = check_box_tag "show_with_url", nil, params[:show_with_url]
+        = label_tag "show_with_url", ::I18n.t('lolita-i18n.show-with-url', :default => ::I18n.t('lolita-i18n.show-with-url'))
     %table
       %thead
         %tr
@@ -21,20 +23,20 @@
       %tbody
         - active_locale = @active_locale
         - @translations.each do |key,value|
-          - if @active_locale && any_translation_visible?(value[:translation])
+          - if @active_locale && any_translation_visible?(value[:translation], value[:url])
             %tr
               - if value[:original_translation].is_a?(Hash) || value[:original_translation].is_a?(Array)
                 %td.grouped{:colspan => "2"}
                   %table
                     - if value[:original_translation].is_a?(Hash)
                       - value[:original_translation].each do |c_key,c_value|
-                        - if translation_visible?(value[:translation][c_key])
+                        - if translation_visible?(value[:translation][c_key], value[:url])
                           %tr
-                            = raw(translation(@active_locale,"#{key}.#{c_key}",key,value[:translation][c_key],c_value))
+                            = raw(translation(@active_locale,"#{key}.#{c_key}",key,value[:translation][c_key],c_value,value[:url]))
                     - else
                       - value[:original_translation].each_with_index do |c_value,index|
-                        - if translation_visible?(value[:translation][index])
+                        - if translation_visible?(value[:translation][index], value[:url])
                           %tr
-                            = raw(translation(@active_locale, "#{key}[#{index}]", key, value[:translation][index], c_value))
+                            = raw(translation(@active_locale, "#{key}[#{index}]", key, value[:translation][index], c_value,value[:url]))
               - else
-                = raw(translation(@active_locale, key, key, value[:translation], value[:original_translation]))
+                = raw(translation(@active_locale, key, key, value[:translation], value[:original_translation],value[:url]))

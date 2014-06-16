@@ -109,7 +109,11 @@ module Lolita
           unless @normalized
             @normalized = {}
             flatten_keys(@translations,locale) do |key,value,original_value|
-              @normalized[key] = {:translation => value, :original_translation => original_value}
+              @normalized[key] = {
+                :translation => value,
+                :original_translation => original_value,
+                :url => Lolita.i18n.store["views.#{key}"]
+              }
             end
           end
           @normalized
@@ -128,7 +132,7 @@ module Lolita
 
         def final_value?(value)
           !value.is_a?(Hash) ||
-          (value.is_a?(Hash) && value.keys.map(&:to_sym).include?(:other) && value.keys.size > 1 && !value.values.detect{|value| value.is_a?(Array) || value.is_a?(Hash)})
+          (value.is_a?(Hash) && value.keys.map(&:to_sym).include?(:other) && value.keys.size > 1 && !value.values.detect{|val| val.is_a?(Array) || val.is_a?(Hash)})
         end
 
         def translation_value key, value, locale
