@@ -1,7 +1,7 @@
 module Lolita
   module I18n
     class Version
-      VERSION = "0.5.3"
+      VERSION = "0.5.4"
 
       def self.to_s
         VERSION
