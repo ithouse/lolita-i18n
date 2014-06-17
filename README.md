@@ -48,6 +48,10 @@ end
 
 After adding go manualy trough the whole site /urls. All translations will be registerd with linked url.
 
+## Export Redis DB to YAML file
+
+rake lolita_i18n:export_redis -- --redisdb=1 --locale=lv --outfile=../lv.yml
+
 ---
 
 Copyright (c) 2014 ITHouse (Latvia). See LICENSE.txt for further details.
