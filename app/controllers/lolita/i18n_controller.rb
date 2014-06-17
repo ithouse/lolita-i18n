@@ -6,10 +6,18 @@ class Lolita::I18nController < ApplicationController
 
   def index
     authorization_proxy.authorize!(:read, self.resource_class)
-    @translations = i18n_request.translations(@active_locale)
+    respond_to do |format|
+      format.html do
+        @translations = i18n_request.translations(@active_locale)
 
-    if params[:sort] && params[:sort].to_s == "1"
-      @translations = i18n_request.sort_translations(@translations)
+        if params[:sort] && params[:sort].to_s == "1"
+          @translations = i18n_request.sort_translations(@translations)
+        end
+        render
+      end
+      format.xlsx do
+        send_xls_file(i18n_request.xls(@active_locale), @active_locale)
+      end
     end
   end
 
@@ -18,7 +26,7 @@ class Lolita::I18nController < ApplicationController
     respond_to do |format|
       format.json do
         begin
-          if saved = i18n_request.update_key 
+          if saved = i18n_request.update_key
             notice(::I18n.t("lolita-i18n.Successful update"))
           else
             error(::I18n.t("lolita-i18n.Error"))
@@ -34,7 +42,7 @@ class Lolita::I18nController < ApplicationController
   end
 
   private
-  
+
   def lolita_mapping
     Lolita.mappings[:i18n]
   end
@@ -54,4 +62,19 @@ class Lolita::I18nController < ApplicationController
     @i18n_request ||= Lolita::I18n::Request.new(params)
   end
 
+  def send_xls_file(translations, active_locale)
+    path = '/tmp'
+    xlsx_package = Axlsx::Package.new
+    wb = xlsx_package.workbook
+    wb.add_worksheet(name: "Translations") do |sheet|
+      sheet.add_row ['Key', 'Url', 'Original', 'Translation']
+      translations.each do |item|
+        sheet.add_row [item[:key], item[:url], item[:original_translation], item[:translation]]
+      end
+    end
+    file_name = "translations-export-#{active_locale}.xlsx"
+    file_path = File.join(path, file_name)
+    xlsx_package.serialize(file_path)
+    send_file file_path
+  end
 end

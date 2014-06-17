@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<redis>, ["~> 3.0.3"])
   s.add_runtime_dependency(%q<yajl-ruby>,["~> 1.1.0"])
   s.add_runtime_dependency(%q<unicode_utils>,["~> 1.4.0"])
+  s.add_runtime_dependency(%q<axlsx_rails>,["~> 0.2.0"])
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]

@@ -163,6 +163,29 @@ module Lolita
         end
       end
 
+      class ExportXls
+        private
+        attr_reader :translations
+        public
+
+        def initialize(translations)
+          @translations = translations
+        end
+
+        def to_a
+          result = []
+          translations.each do |key, value|
+            result << {
+              :key => key,
+              :url => value[:url],
+              :original_translation => value[:original_translation].to_s,
+              :translation => value[:translation].to_s
+            }
+          end
+          result
+        end
+      end
+
       attr_accessor :params
 
       def initialize(params)
@@ -170,9 +193,10 @@ module Lolita
       end
 
       def translations locale
+        return @translations if defined?(@translations)
         Lolita.i18n.load_translations
         translations = Translations.new(Lolita.i18n.yaml_backend.send(:translations)[::I18n.default_locale])
-        translations.normalized(locale)
+        @translations = translations.normalized(locale)
       end
 
       def sort_translations(unsorted_translations)
@@ -197,6 +221,11 @@ module Lolita
 
       def validator
         @validator ||= Validator.new()
+      end
+
+      def xls(locale)
+        return @xls if defined?(@xls)
+        @xls = ExportXls.new(translations(locale)).to_a
       end
 
       private
