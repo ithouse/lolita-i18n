@@ -2,7 +2,11 @@ $:<<File.dirname(__FILE__) unless $:.include?(File.dirname(__FILE__))
 require 'redis'
 require 'yajl'
 require 'lolita'
+require 'axlsx'
 
+unless defined? Mime::XLSX
+  Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
+end
 
 module Lolita
   # === Uses Redis DB as backend

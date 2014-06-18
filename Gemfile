@@ -13,5 +13,5 @@ group :test do
   gem 'selenium-webdriver', '~> 2.41.0'
   gem 'sass', '~> 3.2.3'
   gem 'coffee-script', '~>2.2.0'
-  gem 'axlsx_rails', '~> 0.2.0'
+  gem 'axlsx', '~> 2.0.1'
 end
