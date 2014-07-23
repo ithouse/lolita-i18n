@@ -63,7 +63,7 @@ class Lolita::I18nController < ApplicationController
   end
 
   def send_xls_file(translations, active_locale)
-    path = '/tmp'
+    path = Rails.root.join('tmp')
     xlsx_package = Axlsx::Package.new
     wb = xlsx_package.workbook
     wb.add_worksheet(name: "Translations") do |sheet|
