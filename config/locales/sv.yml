@@ -1,0 +1,17 @@
+sv:
+  en: English
+  lv: Latvian
+  ru: Russian
+  de: German
+  sv: Swedish
+  lt: Lithuanian
+  ee: Estonian
+  lolita-i18n:
+    title: "Static content translation"
+    choose-other-language: "Choose other language"
+    "Successful update": "Successful update"
+    show-untranslated: "Show only untranslated"
+  lolita:
+    navigation:
+      system: "System"
+  
