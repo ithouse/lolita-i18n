@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe "Translating process" do 
    def translate_key(key)
-    page.should have_selector("textarea[name='#{key}']")
+    expect(page).to have_selector("textarea[name='#{key}']")
     fill_in(key, :with => "translation for #{key}")
     page.execute_script(%Q{$("textarea[name='#{key}']").blur()})
     page.execute_script(%Q{window.location.href='#'})
     page.check("show_untranslated")
-    page.find_field(key).value.should == "translation for #{key}"
+    expect(page.find_field(key).value).to eq("translation for #{key}")
   end
 
   before(:each) do 

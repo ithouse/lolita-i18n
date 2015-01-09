@@ -6,53 +6,53 @@ describe Lolita::I18n::Request do
     let(:validator){Lolita::I18n::Request::Validator.new}
 
     it "should validate string and return error when original and given values interpolations doesn't match" do
-      ::I18n.stub(:t).and_return("original text")
+      allow(::I18n).to receive(:t).and_return("original text")
       expect{validator.validate("text_key","text")}.not_to raise_error
 
-      ::I18n.stub(:t).and_return("text with %{interpolation}")
+      allow(::I18n).to receive(:t).and_return("text with %{interpolation}")
       expect{
         validator.validate("text_key","text")
       }.to raise_error(Lolita::I18n::Exceptions::MissingInterpolationArgument)
     end
 
     it "should validate array's each value as string" do 
-      ::I18n.stub(:t).and_return(["a","b","c"])
+      allow(::I18n).to receive(:t).and_return(["a","b","c"])
       expect{validator.validate("array_key",["1","2","3"])}.not_to raise_error
 
-      ::I18n.stub(:t).and_return(["a","%{b}","c"])
+      allow(::I18n).to receive(:t).and_return(["a","%{b}","c"])
       expect{
         validator.validate("array_key",["1","2","3"])
       }.to raise_error(Lolita::I18n::Exceptions::MissingInterpolationArgument,"Translation should contain all these variables %{b}")
     end
 
     it "should validate hash's each value as string" do 
-      ::I18n.stub(:t).and_return({:a => "1", :b => "2"})
+      allow(::I18n).to receive(:t).and_return({:a => "1", :b => "2"})
       expect{validator.validate("array_key",{"a" => "a", "b" => "b"})}.not_to raise_error
 
-      ::I18n.stub(:t).and_return({:a => "1", :b => "2 %{count}"})
+      allow(::I18n).to receive(:t).and_return({:a => "1", :b => "2 %{count}"})
       expect{
         validator.validate("array_key",{"a" => "a", "b" => "b"})
       }.to raise_error(Lolita::I18n::Exceptions::MissingInterpolationArgument)
     end
 
     it "should raise error when translation is Array but original is not or sizes does not match" do 
-      ::I18n.stub(:t).and_return("")
+      allow(::I18n).to receive(:t).and_return("")
       expect{
         validator.validate("key",[1,2])
       }.to raise_error(Lolita::I18n::Exceptions::TranslationDoesNotMatch)
 
-      ::I18n.stub(:t).and_return([1,2])
+      allow(::I18n).to receive(:t).and_return([1,2])
       expect{
         validator.validate("key",[2])
       }
     end
 
     it "should raise error when translation is Hash but original is not or keys does not match " do 
-      ::I18n.stub(:t).and_return("")
+      allow(::I18n).to receive(:t).and_return("")
       expect{
         validator.validate("key",{"a" => 1})
       }.to raise_error(Lolita::I18n::Exceptions::TranslationDoesNotMatch)
-      ::I18n.stub(:t).and_return({:a => 2, :b => 3})
+      allow(::I18n).to receive(:t).and_return({:a => 2, :b => 3})
       expect{
         validator.validate("key",{"a" => 1})
       }
@@ -71,30 +71,30 @@ describe Lolita::I18n::Request do
     end
 
     it "should return parsed value" do 
-      I18n.stub(:t).and_return("original_value")
+      allow(I18n).to receive(:t).and_return("original_value")
       t = klass.new("key","value")
-      t.value.should eq("value")
+      expect(t.value).to eq("value")
     end
 
     it "should return locale for key" do 
       t = klass.new("lv.key","value")
-      t.locale.should eq(:lv)
+      expect(t.locale).to eq(:lv)
     end
 
     it "should return key" do 
       t = klass.new("lv.key","value")
-      t.key.should eq("key")
+      expect(t.key).to eq("key")
     end
 
     it "should return array for store with locale, key => value and configuration hash" do 
       t = klass.new("lv.my.key","value")
-      t.for_store.should eq([:lv,{"my.key" => "value"}, {:escape => false}])
+      expect(t.for_store).to eq([:lv,{"my.key" => "value"}, {:escape => false}])
     end
 
     it "should return original translation of given key" do 
-      ::I18n.stub(:t).with(kind_of(String), kind_of(Hash)).and_return("original")
+      allow(::I18n).to receive(:t).with(kind_of(String), kind_of(Hash)).and_return("original")
       t = klass.new("ru.my.key","value")
-      t.original.should eq("original")
+      expect(t.original).to eq("original")
     end
   end
 
@@ -106,7 +106,7 @@ describe Lolita::I18n::Request do
 
     let(:klass){Lolita::I18n::Request::Translations}
     let(:translations) {
-      ::I18n.stub(:t) do |*args|
+      allow(::I18n).to receive(:t) do |*args|
         if args[1] && args[1][:locale] == :en
           if args[0] == :arr
             [1,2] 
@@ -132,24 +132,24 @@ describe Lolita::I18n::Request do
 
     it "should detect if value is final and should't be flattened any more" do
       t = klass.new({})
-      t.final_value?(1).should be_true
-      t.final_value?([]).should be_true
-      t.final_value?({:other => "other", :one => "one"}).should be_true
-      t.final_value?({:other => "other"}).should be_false
-      t.final_value?({:other => [], :one => 1}).should be_false
-      t.final_value?({:other => {}, :one => 1}).should be_false
+      expect(t.final_value?(1)).to be_truthy
+      expect(t.final_value?([])).to be_truthy
+      expect(t.final_value?({:other => "other", :one => "one"})).to be_truthy
+      expect(t.final_value?({:other => "other"})).to be_falsey
+      expect(t.final_value?({:other => [], :one => 1})).to be_falsey
+      expect(t.final_value?({:other => {}, :one => 1})).to be_falsey
     end
 
     it "should return default translation value for different original values" do 
       t = klass.new({})
-      ::I18n.stub(:t).and_return([])
-      t.translation_value("key",[1,2],"ru").should eq([])
-      ::I18n.stub(:t).and_return({})
-      t.translation_value("key",{:a=>1},"ru").should eq({})
-      ::I18n.stub(:t).and_return("translation")
-      t.translation_value("key","value","ru").should eq("translation")
-      ::I18n.stub(:t).and_return([1,2])
-      t.translation_value("key",[2,3],"ru").should eq([1,2])
+      allow(::I18n).to receive(:t).and_return([])
+      expect(t.translation_value("key",[1,2],"ru")).to eq([])
+      allow(::I18n).to receive(:t).and_return({})
+      expect(t.translation_value("key",{:a=>1},"ru")).to eq({})
+      allow(::I18n).to receive(:t).and_return("translation")
+      expect(t.translation_value("key","value","ru")).to eq("translation")
+      allow(::I18n).to receive(:t).and_return([1,2])
+      expect(t.translation_value("key",[2,3],"ru")).to eq([1,2])
     end
 
     it "should flatten keys until final value is found" do 
@@ -164,7 +164,7 @@ describe Lolita::I18n::Request do
         [:inter, {}, {:one => "one", :other => "other"}],
         [:"hsh.key","-no-translation-", "value"]
       ]
-      result.should eq(valid_results)
+      expect(result).to eq(valid_results)
     end 
 
     it "should normalize for locale" do
@@ -175,11 +175,11 @@ describe Lolita::I18n::Request do
         :inter => {:translation => {}, :original_translation => {:one => "one", :other => "other"}, :url => nil},
         :"hsh.key" => {:translation => "-no-translation-", :original_translation => "value", :url => nil}
       }
-      t.normalized(:lv).should eq(valid_results)
+      expect(t.normalized(:lv)).to eq(valid_results)
     end
 
     it "should normalize for locale end retur registerd URL" do
-      Redis.any_instance.stub(:[]).and_return '/kekss'
+      allow_any_instance_of(Redis).to receive(:[]).and_return '/kekss'
       t = klass.new(translations)
       valid_results = {
         :arr => {:translation => [], :original_translation => [1,2], :url => '/kekss'},
@@ -187,7 +187,7 @@ describe Lolita::I18n::Request do
         :inter => {:translation => {}, :original_translation => {:one => "one", :other => "other"}, :url => '/kekss'},
         :"hsh.key" => {:translation => "-no-translation-", :original_translation => "value", :url => '/kekss'}
       }
-      t.normalized(:lv).should eq(valid_results)
+      expect(t.normalized(:lv)).to eq(valid_results)
     end
   end
 
@@ -196,15 +196,15 @@ describe Lolita::I18n::Request do
   it "should create new request with params" do 
     expect{
       request = request_klass.new({:a => 1})
-      request.params.should eq({:a => 1})
+      expect(request.params).to eq({:a => 1})
     }.not_to raise_error
   end
 
   it "should return translations" do 
     r = request_klass.new({})
-    Lolita.i18n.should_receive(:load_translations).and_return(true)
-    Lolita.i18n.stub(:yaml_backend).and_return(stub(:translations => {:en => {}}))
-    Lolita::I18n::Request::Translations.any_instance.should_receive(:normalized).once
+    expect(Lolita.i18n).to receive(:load_translations).and_return(true)
+    allow(Lolita.i18n).to receive(:yaml_backend).and_return(double(:translations => {:en => {}}))
+    expect_any_instance_of(Lolita::I18n::Request::Translations).to receive(:normalized).once
     r.translations(:en)
   end
 
@@ -228,21 +228,21 @@ describe Lolita::I18n::Request do
       [:"key4", {:original_translation => true}], 
       [:"key9", {:original_translation => "ZZZ"}]
     ]
-    r.sort_translations(unsorted_translations).should eq(sorted_translations)
+    expect(r.sort_translations(unsorted_translations)).to eq(sorted_translations)
   end
 
   it "should update key" do 
     r = request_klass.new({:translation => "translation", :id => Base64.encode64("ru.key")})
-    ::I18n.stub(:t).and_return("original")
+    allow(::I18n).to receive(:t).and_return("original")
     backend = double("backend")
     Lolita.i18n.stub(:backend => backend)
-    backend.should_receive(:store_translations).with(:"ru", { "key" => "translation" }, :escape => false).and_return(true)
+    expect(backend).to receive(:store_translations).with(:"ru", { "key" => "translation" }, :escape => false).and_return(true)
     r.update_key
   end
 
   it "should have validator" do 
     r = request_klass.new({})
-    r.validator.should be_a_kind_of(Lolita::I18n::Request::Validator)
+    expect(r.validator).to be_a_kind_of(Lolita::I18n::Request::Validator)
   end
 
  
