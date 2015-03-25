@@ -6,10 +6,9 @@ gem 'lolita', git: 'https://github.com/ithouse/lolita', branch: 'rails4.2'
 
 group :test do
   gem 'byebug'
-  gem 'rails', '~> 3.2.0'
+  gem 'rails', '~> 4.2.0'
   gem 'simplecov', '~> 0.7.1'
-  gem 'bson_ext', '~> 1.10.1'
-  gem 'mongoid', '~> 2.7.1'
+  gem 'mongoid', '~> 4.0.2'
   gem 'rspec-rails', '~> 2.14'
   gem 'capybara', '~> 2.1'
   gem 'selenium-webdriver'
