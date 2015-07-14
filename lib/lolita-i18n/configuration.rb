@@ -7,7 +7,7 @@ module Lolita
       attr_reader :recording_request_path_info
 
       def load_rails!
-        if Lolita.rails3?
+        if Lolita.rails?
           require 'lolita-i18n/rails'
         end
       end
