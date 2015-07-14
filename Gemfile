@@ -11,7 +11,7 @@ group :test do
   gem 'mongoid', '~> 4.0.2'
   gem 'rspec-rails', '~> 2.14'
   gem 'capybara', '~> 2.1'
-  gem 'selenium-webdriver', '~> 2.41.0'
+  gem 'selenium-webdriver', '~> 2.46.2'
   gem 'sass', '~> 3.2.3'
   gem 'coffee-script', '~>2.2.0'
   gem 'axlsx', '~> 2.0.1'
