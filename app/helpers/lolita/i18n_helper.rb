@@ -59,7 +59,7 @@ module Lolita
       else
         params.reject{|k,v| k == "sort" || k == :sort}
       end
-      url_for_sort = url_for(sort_params)
+      url_for_sort = url_for(sort_params.permit!)
       link_to(raw("#{::I18n.t(::I18n.default_locale)} #{params[:sort] && "&uArr;"}"), url_for_sort, :id => "translation_sort_link")
     end
   end
