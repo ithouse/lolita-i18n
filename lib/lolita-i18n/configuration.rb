@@ -51,7 +51,7 @@ module Lolita
           include_modules
           set_yaml_backend
           @initialized = true
-          connect
+          connect unless ENV['REDIS_URL'].start_with?('nulldb://')
         end
       end
 
