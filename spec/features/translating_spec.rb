@@ -8,6 +8,7 @@ describe "Translating process" do
     page.execute_script(%Q{window.location.href='#'})
     page.check("show_untranslated")
     expect(page.find_field(key).value).to eq("translation for #{key}")
+    expect(page).not_to have_content("Key is not saved")
   end
 
   before(:each) do 

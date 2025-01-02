@@ -2,17 +2,16 @@ source 'http://rubygems.org'
 
 gemspec
 
-gem 'lolita', git: 'https://github.com/ithouse/lolita', branch: 'rails4.2'
+gem 'lolita', git: 'https://github.com/ithouse/lolita', ref: '7f88ce59555940aaa46dd9fd8837a32891fc0280'
 
 group :test do
   gem 'byebug'
-  gem 'rails', '~> 4.2.0'
-  gem 'simplecov', '~> 0.7.1'
-  gem 'mongoid', '~> 4.0.2'
-  gem 'rspec-rails', '~> 2.14'
-  gem 'capybara', '~> 2.1'
-  gem 'selenium-webdriver', '~> 2.46.2'
-  gem 'sass', '~> 3.2.3'
-  gem 'coffee-script', '~>2.2.0'
-  gem 'axlsx', '~> 2.0.1'
+  gem 'rails', '~> 5.2'
+  gem 'simplecov'
+  gem 'mongoid', '~> 6.0.0'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'capybara', '~> 3.36'
+  gem 'selenium-webdriver', '~> 4.1'
+  gem 'axlsx'
+  gem 'rails-controller-testing'
 end

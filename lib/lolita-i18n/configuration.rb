@@ -1,6 +1,14 @@
 module Lolita
   module I18n
     class Configuration
+      module RedisSquareBrackets
+        def []= (*args)
+          set(*args)
+        end
+        def [] (*args)
+          get(*args)
+        end
+      end
 
       attr_accessor :yaml_backend,
         :request_path_info
@@ -16,6 +24,9 @@ module Lolita
         unless @store
           warn "Lolita::I18n No store specified. See Lolita::I18n"
           @store = Redis.new
+        end
+        unless @store.respond_to?(:[])
+          @store.extend(RedisSquareBrackets)
         end
         @store
       end
@@ -51,7 +62,7 @@ module Lolita
           include_modules
           set_yaml_backend
           @initialized = true
-          connect unless ENV['REDIS_URL'].start_with?('nulldb://')
+          connect unless !ENV['REDIS_URL'].nil? && ENV['REDIS_URL'].start_with?('nulldb://')
         end
       end
 
@@ -67,7 +78,6 @@ module Lolita
         else
           disconnect
           @connected = begin
-            store.client.reconnect
             store.ping
             ::I18n.backend = initialize_chain
             true
@@ -80,7 +90,7 @@ module Lolita
 
       def disconnect
         if @connected
-          store.client.disconnect
+          store.disconnect!
           @connected = false
         end
       end

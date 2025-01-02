@@ -1,5 +1,4 @@
 require "json"
-require "unicode_utils/upcase"
 
 module Lolita
   module I18n
@@ -210,7 +209,7 @@ module Lolita
           elsif complex_value?(value_b,value_a)
             1
           else
-            UnicodeUtils.upcase(value_a.to_s) <=> UnicodeUtils.upcase(value_b.to_s)
+            value_a.to_s.upcase <=> value_b.to_s.upcase
           end
         end
       end

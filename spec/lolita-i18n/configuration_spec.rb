@@ -108,13 +108,13 @@ describe Lolita::I18n::Configuration do
 
   describe "#disconnect" do
     it "should disconnect if connected" do
-      expect(subject.store.client).to receive(:disconnect).twice
+      expect(subject.store).to receive(:disconnect!).once
       subject.connect
       subject.disconnect
     end
 
     it "should not disconnect if not connected"do
-      expect(subject.store.client).not_to receive(:disconnect)
+      expect(subject.store).not_to receive(:disconnect!)
       subject.disconnect
     end
   end

@@ -40,4 +40,10 @@ RSpec.configure do |config|
   #       # Equivalent to being in spec/controllers
   #     end
   config.infer_spec_type_from_file_location!
+
+  [:controller, :view, :request].each do |type|
+    config.include ::Rails::Controller::Testing::TestProcess, :type => type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
+    config.include ::Rails::Controller::Testing::Integration, :type => type
+  end
 end

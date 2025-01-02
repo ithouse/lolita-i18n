@@ -179,7 +179,7 @@ describe Lolita::I18n::Request do
     end
 
     it "should normalize for locale end retur registerd URL" do
-      allow_any_instance_of(Redis).to receive(:[]).and_return '/kekss'
+      allow_any_instance_of(Redis).to receive(:get).and_return '/kekss'
       t = klass.new(translations)
       valid_results = {
         :arr => {:translation => [], :original_translation => [1,2], :url => '/kekss'},
@@ -220,8 +220,8 @@ describe Lolita::I18n::Request do
       :"key3" => {:original_translation => false}
     }
     sorted_translations = [
-      [:"key7", {:original_translation => {:a => 1}}],
       [:"key8", {:original_translation => [1,2]}],
+      [:"key7", {:original_translation => {:a => 1}}],
       [:"key5", {:original_translation => nil}],
       [:"key6", {:original_translation => "aaa"}],
       [:"key3", {:original_translation => false}],
