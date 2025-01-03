@@ -12,6 +12,6 @@ group :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'capybara', '~> 3.36'
   gem 'selenium-webdriver', '~> 4.1'
-  gem 'axlsx'
+  gem 'caxlsx'
   gem 'rails-controller-testing'
 end

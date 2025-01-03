@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<i18n>, ["~> 1.0"])
   s.add_runtime_dependency(%q<redis>, ["~> 5.0"])
   s.add_runtime_dependency(%q<yajl-ruby>,["~> 1.4"])
-  s.add_runtime_dependency(%q<axlsx>,[">= 2.0.1"])
+  s.add_runtime_dependency(%q<caxlsx>,[">= 4.0"])
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
